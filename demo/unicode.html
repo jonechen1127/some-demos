@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>unicode.html</title>
+	<style>
+	@charset "utf-8";
+	/**css重置**/
+	body,div,hr,p,blockquote,ul,ol,li,table,th,td,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,input,button,select,textarea,fieldset{ margin:0;padding:0; list-style: none;}
+	a,img,button,input,textarea{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+	input,textarea{-webkit-appearance:none;}
+	img, fieldset { border: 0; }
+	/* 设置图片最大宽度为100%以自适应 */
+	img { max-width: 100%; width: auto\9; /* ie8 */}
+	/* 设置html5新标签为块状元素 */
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section,form { display: block; }
+	/*fix*/
+	.clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+	.clearfix { display: inline-block; }
+	.clearfix { display: block; zoom: 1; }
+	.clear{line-height: 0px; font-size: 0px; height: 0px; display: block;clear: both;}
+	/**常规设置**/
+	body { background:#fff;font:100%/150% "Lucida Grande","Lucida Sans Unicode","microsoft yahei",Helvetica,Arial,Verdana,sans-serif; color: #333;}
+	a { color: #333; text-decoration: none; outline: none; }
+	a:hover { color: #333; text-decoration: none; cursor: pointer;}
+
+	/* 搜索 */
+	input[type=search] { -webkit-appearance: none; outline: none; }
+	input[type="search"]::-webkit-search-decoration, 
+	input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+	h1{text-align: center;padding: 20px 0;font-size: 28px;font-weight: normal;}
+	h3{padding: 15px;}
+	table{width: 100%; border-collapse: collapse;}
+	table tr td{border: 1px solid #555;padding: 15px 0;padding-left: 15px;}
+	table tr:first-child{background: #ffe899;}
+	table tr:not(:first-child):hover{background: #f1f1f1;}
+	</style>
+</head>
+<body>
+<h1>可以代替图标的常用Unicode符号 </h1>
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Smiley</td>
+			<td width="20%">☺</td>
+			
+			<td>&amp;#x263a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Hot Springs</td>
+			<td width="20%">♨</td>
+			
+			<td>&amp;#x2668;</td>
+		</tr>
+		<tr>
+			<td width="50%">8-Ball</td>
+			<td width="20%">➑</td>
+			
+			<td>&amp;#x2791;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Star</td>
+			<td width="20%">☆</td>
+			
+			<td>&amp;#x2606;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Star</td>
+			<td width="20%">★</td>
+			
+			<td>&amp;#x2605;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Heart</td>
+			<td width="20%">♡</td>
+			
+			<td>&amp;#x2661;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Heart</td>
+			<td width="20%">❤</td>
+			
+			<td>&amp;#x2764;</td>
+		</tr>
+		<tr>
+			<td width="50%">Airplane</td>
+			<td width="20%">✈</td>
+			
+			<td>&amp;#x2708;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Scissors</td>
+			<td width="20%">✂</td>
+			
+			<td>&amp;#x2702;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Scissors</td>
+			<td width="20%">✄</td>
+			
+			<td>&amp;#x2704;</td>
+		</tr>
+		<tr>
+			<td width="50%">Crown</td>
+			<td width="20%">♕</td>
+			
+			<td>&amp;#x2655;</td>
+		</tr>
+		<tr>
+			<td width="50%">Cross</td>
+			<td width="20%">✝</td>
+			
+			<td>&amp;#x271d;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black-White Circle</td>
+			<td width="20%">◑</td>
+			
+			<td>&amp;#x25d1;</td>
+		</tr>
+		<tr>
+			<td width="50%">Eight Note</td>
+			<td width="20%">♪</td>
+			
+			<td>&amp;#x266a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Beamed Eighth Notes</td>
+			<td width="20%">♫</td>
+			
+			<td>&amp;#x266b;</td>
+		</tr>
+		<tr>
+			<td width="50%">Four Balloon-Spoked Asterisk</td>
+			<td width="20%">✣</td>
+			
+			<td>&amp;#x2723;</td>
+		</tr>
+		<tr>
+			<td width="50%">Circled White Star</td>
+			<td width="20%">✪</td>
+			
+			<td>&amp;#x272a;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Star</td>
+			<td width="20%">✰</td>
+			
+			<td>&amp;#x2730;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Four Pointed Star</td>
+			<td width="20%">✧</td>
+			
+			<td>&amp;#x2727;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Four Pointed Star</td>
+			<td width="20%">✦</td>
+			
+			<td>&amp;#x2726;</td>
+		</tr>
+		<tr>
+			<td width="50%">Ballot Box Check</td>
+			<td width="20%">☑</td>
+			
+			<td>&amp;#x2611;</td>
+		</tr>
+		<tr>
+			<td width="50%">Check Mark</td>
+			<td width="20%">✔</td>
+			
+			<td>&amp;#x2714;</td>
+		</tr>
+		<tr>
+			<td width="50%">Cross Mark</td>
+			<td width="20%">✘</td>
+			
+			<td>&amp;#x2718;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pencil</td>
+			<td width="20%">✎</td>
+			
+			<td>&amp;#x270e;</td>
+		</tr>
+		<tr>
+			<td width="50%">Writing Hand</td>
+			<td width="20%">✍</td>
+			
+			<td>&amp;#x270d;</td>
+		</tr>
+		<tr>
+			<td width="50%">Female</td>
+			<td width="20%">♀</td>
+			
+			<td>&amp;#x2640;</td>
+		</tr>
+		<tr>
+			<td width="50%">Male</td>
+			<td width="20%">♂</td>
+			
+			<td>&amp;#x2642;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Telephone</td>
+			<td width="20%">☎</td>
+			
+			<td>&amp;#x260e;</td>
+		</tr>
+		<tr>
+			<td width="50%">White Telephone</td>
+			<td width="20%">☏</td>
+			
+			<td>&amp;#x260f;</td>
+		</tr>
+		<tr>
+			<td width="50%">Envelope</td>
+			<td width="20%">✉</td>
+			
+			<td>&amp;#x2709;</td>
+		</tr>
+		<tr>
+			<td width="50%">Telephone Location</td>
+			<td width="20%">✆</td>
+			
+			<td>&amp;#x2706;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Arrows</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Leftwards Arrow</td>
+			<td width="20%">←</td>
+			
+			<td>&amp;#x2190;</td>
+		</tr>
+		<tr>
+			<td width="50%">Rightwards Arrow</td>
+			<td width="20%">→</td>
+			
+			<td>&amp;#x2192;</td>
+		</tr>
+		<tr>
+			<td width="50%">Upwards Arrow</td>
+			<td width="20%">↑</td>
+			
+			<td>&amp;#x2191;</td>
+		</tr>
+		<tr>
+			<td width="50%">Downwards Arrow</td>
+			<td width="20%">↓</td>
+			
+			<td>&amp;#x2193;</td>
+		</tr>
+		<tr>
+			<td width="50%">Left Right Arrow</td>
+			<td width="20%">↔</td>
+			
+			<td>&amp;#x2194;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up Down Arrow</td>
+			<td width="20%">↕</td>
+			
+			<td>&amp;#x2195;</td>
+		</tr>
+		<tr>
+			<td width="50%">Right And Left Arrows</td>
+			<td width="20%">⇄</td>
+			
+			<td>&amp;#x21c4;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up And Down Arrows</td>
+			<td width="20%">⇅</td>
+			
+			<td>&amp;#x21c5;</td>
+		</tr>
+		<tr>
+			<td width="50%">Down-Left 90deg Arrow</td>
+			<td width="20%">↲</td>
+			
+			<td>&amp;#x21b2;</td>
+		</tr>
+		<tr>
+			<td width="50%">Down-Right 90deg Arrow</td>
+			<td width="20%">↳</td>
+			
+			<td>&amp;#x21b3;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up-Left 90deg Arrow</td>
+			<td width="20%">↰</td>
+			
+			<td>&amp;#x21b0;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up-Right 90deg Arrow</td>
+			<td width="20%">↱</td>
+			
+			<td>&amp;#x21b1;</td>
+		</tr>
+		<tr>
+			<td width="50%">Leftwards Arrow To Bar</td>
+			<td width="20%">⇤</td>
+			
+			<td>&amp;#x21e4;</td>
+		</tr>
+		<tr>
+			<td width="50%">Rightwards Arrow To Bar</td>
+			<td width="20%">⇥</td>
+			
+			<td>&amp;#x21e5;</td>
+		</tr>
+		<tr>
+			<td width="50%">Anticlockwise Semicircle Arrow</td>
+			<td width="20%">↶</td>
+			
+			<td>&amp;#x21b6;</td>
+		</tr>
+		<tr>
+			<td width="50%">Clockwise Semicircle Arrow</td>
+			<td width="20%">↷</td>
+			
+			<td>&amp;#x21b7;</td>
+		</tr>
+		<tr>
+			<td width="50%">Anticlockwise Circle Arrow</td>
+			<td width="20%">↺</td>
+			
+			<td>&amp;#x21ba;</td>
+		</tr>
+		<tr>
+			<td width="50%">Clockwise Circle Arrow</td>
+			<td width="20%">↻</td>
+			
+			<td>&amp;#x21bb;</td>
+		</tr>
+		<tr>
+			<td width="50%">Wide-Headed Rightwards Arrow</td>
+			<td width="20%">➔</td>
+			
+			<td>&amp;#x2794;</td>
+		</tr>
+		<tr>
+			<td width="50%">Downwards Zigzag Arrow</td>
+			<td width="20%">↯</td>
+			
+			<td>&amp;#x21af;</td>
+		</tr>
+		<tr>
+			<td width="50%">North West Arrow</td>
+			<td width="20%">↖</td>
+			
+			<td>&amp;#x2196;</td>
+		</tr>
+		<tr>
+			<td width="50%">Heavy South East Arrow</td>
+			<td width="20%">➘</td>
+			
+			<td>&amp;#x2798;</td>
+		</tr>
+		<tr>
+			<td width="50%">Heavy Rightwards Arrow</td>
+			<td width="20%">➙</td>
+			
+			<td>&amp;#x2799;</td>
+		</tr>
+		<tr>
+			<td width="50%">Heavy North East Arrow</td>
+			<td width="20%">➚</td>
+			
+			<td>&amp;#x279a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Dashed Rightwards Arrow</td>
+			<td width="20%">➟</td>
+			
+			<td>&amp;#x279f;</td>
+		</tr>
+		<tr>
+			<td width="50%">Dotted Leftwards Arrow</td>
+			<td width="20%">⇠</td>
+			
+			<td>&amp;#x21e0;</td>
+		</tr>
+		<tr>
+			<td width="50%">Black Rightwards Arrowhead</td>
+			<td width="20%">➤</td>
+			
+			<td>&amp;#x27a4;</td>
+		</tr>
+		<tr>
+			<td width="50%">Leftwards White Arrow</td>
+			<td width="20%">⇦</td>
+			
+			<td>&amp;#x21e6;</td>
+		</tr>
+		<tr>
+			<td width="50%">Rightwards White Arrow</td>
+			<td width="20%">⇨</td>
+			
+			<td>&amp;#x21e8;</td>
+		</tr>
+		<tr>
+			<td width="50%">Left Angle Quotation Mark</td>
+			<td width="20%">«</td>
+			
+			<td>&amp;#xab;</td>
+		</tr>
+		<tr>
+			<td width="50%">Right Angle Quotation Mark</td>
+			<td width="20%">»</td>
+			
+			<td>&amp;#xbb;</td>
+		</tr>
+		<tr>
+			<td width="50%">Right Black Pointer</td>
+			<td width="20%">►</td>
+			
+			<td>&amp;#x25ba;</td>
+		</tr>
+		<tr>
+			<td width="50%">Left Black Pointer</td>
+			<td width="20%">◀</td>
+			
+			<td>&amp;#x25c0;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up Black Pointer</td>
+			<td width="20%">▲</td>
+			
+			<td>&amp;#x25b2;</td>
+		</tr>
+		<tr>
+			<td width="50%">Down Black Pointer</td>
+			<td width="20%">▼</td>
+			
+			<td>&amp;#x25bc;</td>
+		</tr>
+		<tr>
+			<td width="50%">Right White Pointer</td>
+			<td width="20%">▷</td>
+			
+			<td>&amp;#x25b7;</td>
+		</tr>
+		<tr>
+			<td width="50%">Left White Pointer</td>
+			<td width="20%">◁</td>
+			
+			<td>&amp;#x25c1;</td>
+		</tr>
+		<tr>
+			<td width="50%">Up White Pointer</td>
+			<td width="20%">△</td>
+			
+			<td>&amp;#x25b3;</td>
+		</tr>
+		<tr>
+			<td width="50%">Down White Pointer</td>
+			<td width="20%">▽</td>
+			
+			<td>&amp;#x25bd;</td>
+		</tr>
+		<tr>
+			<td width="50%">Bow Arrow</td>
+			<td width="20%">➴</td>
+			
+			<td>&amp;#x27b4;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Special</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Numero</td>
+			<td width="20%">№</td>
+			
+			<td>&amp;#x2116;</td>
+		</tr>
+		<tr>
+			<td width="50%">Copyright</td>
+			<td width="20%">©</td>
+			
+			<td>&amp;#xa9;</td>
+		</tr>
+		<tr>
+			<td width="50%">Registered</td>
+			<td width="20%">®</td>
+			
+			<td>&amp;#xae;</td>
+		</tr>
+		<tr>
+			<td width="50%">Trademark</td>
+			<td width="20%">™</td>
+			
+			<td>&amp;#x2122;</td>
+		</tr>
+		<tr>
+			<td width="50%">Estimated</td>
+			<td width="20%">℮</td>
+			
+			<td>&amp;#x212e;</td>
+		</tr>
+		<tr>
+			<td width="50%">Bullet</td>
+			<td width="20%">•</td>
+			
+			<td>&amp;#x2022;</td>
+		</tr>
+		<tr>
+			<td width="50%">Middle Dot</td>
+			<td width="20%">·</td>
+			
+			<td>&amp;#xb7;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Currency</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Euro</td>
+			<td width="20%">€</td>
+			
+			<td>&amp;#x20ac;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pound</td>
+			<td width="20%">£</td>
+			
+			<td>&amp;#xa3;</td>
+		</tr>
+		<tr>
+			<td width="50%">Lira</td>
+			<td width="20%">₤</td>
+			
+			<td>&amp;#x20a4;</td>
+		</tr>
+		<tr>
+			<td width="50%">Yen</td>
+			<td width="20%">¥</td>
+			
+			<td>&amp;#xa5;</td>
+		</tr>
+		<tr>
+			<td width="50%">Cent</td>
+			<td width="20%">¢</td>
+			
+			<td>&amp;#xa2;</td>
+		</tr>
+		<tr>
+			<td width="50%">Currency</td>
+			<td width="20%">¤</td>
+			
+			<td>&amp;#xa4;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Weather</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Degree</td>
+			<td width="20%">°</td>
+			
+			<td>&amp;#xb0;</td>
+		</tr>
+		<tr>
+			<td width="50%">Small Sun</td>
+			<td width="20%">☀</td>
+			
+			<td>&amp;#x2600;</td>
+		</tr>
+		<tr>
+			<td width="50%">Big Sun</td>
+			<td width="20%">☼</td>
+			
+			<td>&amp;#x263c;</td>
+		</tr>
+		<tr>
+			<td width="50%">Cloud</td>
+			<td width="20%">☁</td>
+			
+			<td>&amp;#x2601;</td>
+		</tr>
+		<tr>
+			<td width="50%">Snowflake 1</td>
+			<td width="20%">❆</td>
+			
+			<td>&amp;#x2746;</td>
+		</tr>
+		<tr>
+			<td width="50%">Snowflake 2</td>
+			<td width="20%">❅</td>
+			
+			<td>&amp;#x2745;</td>
+		</tr>
+		<tr>
+			<td width="50%">Snowflake 3</td>
+			<td width="20%">❄</td>
+			
+			<td>&amp;#x2744;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Pointers</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Left Black</td>
+			<td width="20%">☚</td>
+			
+			<td>&amp;#x261a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Right Black</td>
+			<td width="20%">☛</td>
+			
+			<td>&amp;#x261b;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Left White</td>
+			<td width="20%">☜</td>
+			
+			<td>&amp;#x261c;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Up White</td>
+			<td width="20%">☝</td>
+			
+			<td>&amp;#x261d;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Right White</td>
+			<td width="20%">☞</td>
+			
+			<td>&amp;#x261e;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pointer Down White</td>
+			<td width="20%">☟</td>
+			
+			<td>&amp;#x261f;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Card Suits</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Spades Black</td>
+			<td width="20%">♠</td>
+			
+			<td>&amp;#x2660;</td>
+		</tr>
+		<tr>
+			<td width="50%">Hearts Black</td>
+			<td width="20%">♥</td>
+			
+			<td>&amp;#x2665;</td>
+		</tr>
+		<tr>
+			<td width="50%">Diamonds Black</td>
+			<td width="20%">♦</td>
+			
+			<td>&amp;#x2666;</td>
+		</tr>
+		<tr>
+			<td width="50%">Clubs Black</td>
+			<td width="20%">♣</td>
+			
+			<td>&amp;#x2663;</td>
+		</tr>
+		<tr>
+			<td width="50%">Spades White</td>
+			<td width="20%">♤</td>
+			
+			<td>&amp;#x2664;</td>
+		</tr>
+		<tr>
+			<td width="50%">Hearts White</td>
+			<td width="20%">♡</td>
+			
+			<td>&amp;#x2661;</td>
+		</tr>
+		<tr>
+			<td width="50%">Diamonds White</td>
+			<td width="20%">♢</td>
+			
+			<td>&amp;#x2662;</td>
+		</tr>
+		<tr>
+			<td width="50%">Clubs White</td>
+			<td width="20%">♧</td>
+			
+			<td>&amp;#x2667;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Chess</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">King White</td>
+			<td width="20%">♔</td>
+			
+			<td>&amp;#x2654;</td>
+		</tr>
+		<tr>
+			<td width="50%">Queen White</td>
+			<td width="20%">♕</td>
+			
+			<td>&amp;#x2655;</td>
+		</tr>
+		<tr>
+			<td width="50%">Rook White</td>
+			<td width="20%">♖</td>
+			
+			<td>&amp;#x2656;</td>
+		</tr>
+		<tr>
+			<td width="50%">Bishop White</td>
+			<td width="20%">♗</td>
+			
+			<td>&amp;#x2657;</td>
+		</tr>
+		<tr>
+			<td width="50%">Knight White</td>
+			<td width="20%">♘</td>
+			
+			<td>&amp;#x2658;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pawn White</td>
+			<td width="20%">♙</td>
+			
+			<td>&amp;#x2659;</td>
+		</tr>
+		<tr>
+			<td width="50%">King Black</td>
+			<td width="20%">♚</td>
+			
+			<td>&amp;#x265a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Queen Black</td>
+			<td width="20%">♛</td>
+			
+			<td>&amp;#x265b;</td>
+		</tr>
+		<tr>
+			<td width="50%">Rook Black</td>
+			<td width="20%">♜</td>
+			
+			<td>&amp;#x265c;</td>
+		</tr>
+		<tr>
+			<td width="50%">Bishop Black</td>
+			<td width="20%">♝</td>
+			
+			<td>&amp;#x265d;</td>
+		</tr>
+		<tr>
+			<td width="50%">Knight Black</td>
+			<td width="20%">♞</td>
+			
+			<td>&amp;#x265e;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pawn Black</td>
+			<td width="20%">♟</td>
+			
+			<td>&amp;#x265f;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Maths</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Infinity</td>
+			<td width="20%">∞</td>
+			
+			<td>&amp;#x221e;</td>
+		</tr>
+		<tr>
+			<td width="50%">Plus Minus</td>
+			<td width="20%">±</td>
+			
+			<td>&amp;#xb1;</td>
+		</tr>
+		<tr>
+			<td width="50%">Less-Than Or Equal To</td>
+			<td width="20%">≤</td>
+			
+			<td>&amp;#x2264;</td>
+		</tr>
+		<tr>
+			<td width="50%">More-Than Or Equal To</td>
+			<td width="20%">≥</td>
+			
+			<td>&amp;#x2265;</td>
+		</tr>
+		<tr>
+			<td width="50%">Not Equal To</td>
+			<td width="20%">≠</td>
+			
+			<td>&amp;#x2260;</td>
+		</tr>
+		<tr>
+			<td width="50%">Division</td>
+			<td width="20%">÷</td>
+			
+			<td>&amp;#xf7;</td>
+		</tr>
+		<tr>
+			<td width="50%">Multiplication x</td>
+			<td width="20%">×</td>
+			
+			<td>&amp;#xd7;</td>
+		</tr>
+		<tr>
+			<td width="50%">Heavy Multiplication x</td>
+			<td width="20%">✖</td>
+			
+			<td>&amp;#x2716;</td>
+		</tr>
+		<tr>
+			<td width="50%">Superscript One</td>
+			<td width="20%">¹</td>
+			
+			<td>&amp;#xb9;</td>
+		</tr>
+		<tr>
+			<td width="50%">Superscript Two</td>
+			<td width="20%">²</td>
+			
+			<td>&amp;#xb2;</td>
+		</tr>
+		<tr>
+			<td width="50%">Superscript Three</td>
+			<td width="20%">³</td>
+			
+			<td>&amp;#xb3;</td>
+		</tr>
+		<tr>
+			<td width="50%">Circled Plus</td>
+			<td width="20%">⊕</td>
+			
+			<td>&amp;#x2295;</td>
+		</tr>
+		<tr>
+			<td width="50%">Circled Multiplication</td>
+			<td width="20%">⊗</td>
+			
+			<td>&amp;#x2297;</td>
+		</tr>
+		<tr>
+			<td width="50%">Logical AND</td>
+			<td width="20%">∧</td>
+			
+			<td>&amp;#x2227;</td>
+		</tr>
+		<tr>
+			<td width="50%">Logical OR</td>
+			<td width="20%">∨</td>
+			
+			<td>&amp;#x2228;</td>
+		</tr>
+		<tr>
+			<td width="50%">Delta</td>
+			<td width="20%">∆</td>
+			
+			<td>&amp;#x2206;</td>
+		</tr>
+		<tr>
+			<td width="50%">Pie</td>
+			<td width="20%">∏</td>
+			
+			<td>&amp;#x220f;</td>
+		</tr>
+		<tr>
+			<td width="50%">Sigma (SUM)</td>
+			<td width="20%">∑</td>
+			
+			<td>&amp;#x2211;</td>
+		</tr>
+		<tr>
+			<td width="50%">Omega</td>
+			<td width="20%">Ω</td>
+			
+			<td>&amp;#x3a9;</td>
+		</tr>
+		<tr>
+			<td width="50%">Empty Set</td>
+			<td width="20%">∅</td>
+			
+			<td>&amp;#x2205;</td>
+		</tr>
+		<tr>
+			<td width="50%">Angle</td>
+			<td width="20%">∠</td>
+			
+			<td>&amp;#x2220;</td>
+		</tr>
+		<tr>
+			<td width="50%">Parallel</td>
+			<td width="20%">∥</td>
+			
+			<td>&amp;#x2225;</td>
+		</tr>
+		<tr>
+			<td width="50%">Perpendicular</td>
+			<td width="20%">⊥</td>
+			
+			<td>&amp;#x22a5;</td>
+		</tr>
+		<tr>
+			<td width="50%">Almost Equal To</td>
+			<td width="20%">≈</td>
+			
+			<td>&amp;#x2248;</td>
+		</tr>
+		<tr>
+			<td width="50%">Triangle</td>
+			<td width="20%">△</td>
+			
+			<td>&amp;#x25b3;</td>
+		</tr>
+		<tr>
+			<td width="50%">Circle</td>
+			<td width="20%">○</td>
+			
+			<td>&amp;#x25CB;</td>
+		</tr>
+		<tr>
+			<td width="50%">Square</td>
+			<td width="20%">□</td>
+			
+			<td>&amp;#x25A1;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Fractions</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">One Quarter (1/4)</td>
+			<td width="20%">¼</td>
+			
+			<td>&amp;#xbc;</td>
+		</tr>
+		<tr>
+			<td width="50%">One Half (1/2)</td>
+			<td width="20%">½</td>
+			
+			<td>&amp;#xbd;</td>
+		</tr>
+		<tr>
+			<td width="50%">Three Quarters (3/4)</td>
+			<td width="20%">¾</td>
+			
+			<td>&amp;#xbe;</td>
+		</tr>
+		<tr>
+			<td width="50%">One Third (1/3)</td>
+			<td width="20%">⅓</td>
+			
+			<td>&amp;#x2153;</td>
+		</tr>
+		<tr>
+			<td width="50%">Two Thirds (2/3)</td>
+			<td width="20%">⅔</td>
+			
+			<td>&amp;#x2154;</td>
+		</tr>
+		<tr>
+			<td width="50%">One Eight (1/8)</td>
+			<td width="20%">⅛</td>
+			
+			<td>&amp;#x215b;</td>
+		</tr>
+		<tr>
+			<td width="50%">Three Eights (3/8)</td>
+			<td width="20%">⅜</td>
+			
+			<td>&amp;#x215c;</td>
+		</tr>
+		<tr>
+			<td width="50%">Five Eights (5/8)</td>
+			<td width="20%">⅝</td>
+			
+			<td>&amp;#x215d;</td>
+		</tr>
+		<tr>
+			<td width="50%">Seven Eights (7/8)</td>
+			<td width="20%">⅞</td>
+			
+			<td>&amp;#x215e;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<h3>Roman Numerals</h3>
+<div class="table-responsive">
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td width="50%">名称</td>
+			<td >预览</td>
+			<td>code</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral One</td>
+			<td width="20%">Ⅰ</td>
+			
+			<td>&amp;#x2160;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Two</td>
+			<td width="20%">Ⅱ</td>
+			
+			<td>&amp;#x2161;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Three</td>
+			<td width="20%">Ⅲ</td>
+			
+			<td>&amp;#x2162;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Four</td>
+			<td width="20%">Ⅳ</td>
+			
+			<td>&amp;#x2163;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Five</td>
+			<td width="20%">Ⅴ</td>
+			
+			<td>&amp;#x2164;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Six</td>
+			<td width="20%">Ⅵ</td>
+			
+			<td>&amp;#x2165;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Seven</td>
+			<td width="20%">Ⅶ</td>
+			
+			<td>&amp;#x2166;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Eight</td>
+			<td width="20%">Ⅷ</td>
+			
+			<td>&amp;#x2167;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Nine</td>
+			<td width="20%">Ⅸ</td>
+			
+			<td>&amp;#x2168;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Ten</td>
+			<td width="20%">Ⅹ</td>
+			
+			<td>&amp;#x2169;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Eleven</td>
+			<td width="20%">Ⅺ</td>
+			
+			<td>&amp;#x216a;</td>
+		</tr>
+		<tr>
+			<td width="50%">Roman Numeral Twelve</td>
+			<td width="20%">Ⅻ</td>
+			
+			<td>&amp;#x216b;</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

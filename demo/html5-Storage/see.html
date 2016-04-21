@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>NoteBook</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="http://www.jcpeixun.com/lesson1/css/web_reset.css">
+    <style>
+    #conten{background-color:#E1C97F;width:800px;height:600px;margin:0 auto 20px;}
+    .stor{padding:10px 10px;border-bottom:1px dotted black;}
+    #back{ margin: 0 auto; height: 40px;line-height: 40px;padding: 0 20px;display: block;}
+    </style>
+    <script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="conten">
+    </div>
+    <input type="button" name="button" id="back" value="返回">
+    <script>
+        $(function() {
+            var storage = window.localStorage;
+            var newjson = JSON.parse(storage.getItem('content'));
+            for (var i = 0; i < newjson.length; i++) {
+                var html = "<p class='stor'>" + newjson[i] + "</p>";
+                $(html).appendTo("#conten");
+            }
+            $('#back').click(function() {
+                location.href = 'editor.html';
+            });
+        });
+    </script>
+</body>
+</html>
