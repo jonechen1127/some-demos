@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery图片无缝轮播插件</title>
+	<style>
+	*{padding: 0; margin: 0;list-style: none;}
+	.banner{margin: 0 auto;border:1px solid #d9d9d9;position: relative; overflow: hidden;}
+	.bar{position: absolute;display: inline-block; bottom:20px;left: 50%;/*background: rgba(255,255,255,0.4);border-radius: 15px;padding: 2px 8px;padding-bottom: 4px;*/; z-index: 100}
+	.bar i{border-radius: 50px;width: 10px;height: 10px;background: rgba(0,0,0,0.5);  display: inline-block;margin: 0 2px; cursor: pointer;box-shadow: outset -3px 2px 0 #ccc}
+	.bar i.on{background: rgba(255,255,255,0.8);}
+	.btn{font-family: "simsun";font-size: 40px;height: 60px;width: 40px;line-height: 60px;text-align: center;color: #fff;background: rgba(0,0,0,.6);position: absolute;top: 50%;text-decoration: none;margin-top: -30px;display: block;cursor: pointer; z-index: 100;}
+	.btn:hover{background: rgba(0,0,0,.9);}
+	.prev{left: 0}
+	.next{right: 0}
+	</style>
+</head>
+<body>
+	<div class="banner" id="slider1">
+		<ul>
+			<li><img src="http://img11.360buyimg.com/da/jfs/t2713/143/645955026/86737/7dff7473/571ed39dN605aa5a3.jpg" ></li>
+			<li><img src="http://img14.360buyimg.com/da/jfs/t2788/54/679408705/81412/1e5e8f6b/5721a54dNfab5867d.jpg" ></li>
+			<li><img src="http://img14.360buyimg.com/da/jfs/t2692/351/713659931/202640/7865cea8/57230d8fN52d07009.jpg" ></li>
+			<li><img src="http://img11.360buyimg.com/da/jfs/t2728/344/758560485/71072/c6d14cc1/5723247aN12a45ccb.jpg" ></li>
+			<li><img src="http://img12.360buyimg.com/da/jfs/t2152/325/2957924093/282537/56fbe0da/5722ccdbN40e19525.jpg" ></li>
+			<li><img src="http://img13.360buyimg.com/da/jfs/t2437/168/3003041090/89823/11bb6f2a/5722cd7eN94052a42.jpg" ></li>
+		</ul>
+	</div>
+	<br>
+	<div class="banner" id="slider2">
+		<ul>
+			<li><img src="https://img.alicdn.com/tps/TB1jAo3JpXXXXX1XpXXXXXXXXXX-520-280.jpg" ></li>
+			<li><img src="https://aecpm.alicdn.com/simba/img/TB1ApwGMpXXXXcoXVXXSutbFXXX.jpg" ></li>
+			<li><img src="https://aecpm.alicdn.com/simba/img/TB1Y3pAJFXXXXX7XpXXSutbFXXX.jpg" ></li>
+			<li><img src="https://aecpm.alicdn.com/simba/img/TB1l6xXJFXXXXc5aXXXSutbFXXX.jpg" ></li>
+		</ul>
+	</div>
+	<script src="http://apps.bdimg.com/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="js/jquery.slider.js"></script>
+	<script>
+	$(function () {
+		$("#slider1").slider({
+			effect:'fade',
+			width:730,
+			height:454
+		});
+		$("#slider2").slider({
+			effect:'horizontal',
+			width:520,
+			height:280
+		})
+	})	
+	</script>
+</body>
+</html>
