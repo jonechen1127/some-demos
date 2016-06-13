@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>css3-figure</title>
+	<style>
+	*{padding: 0; margin: 0}
+	/* fix */
+	.clear {clear:both; height:0; overflow:hidden; display:block; line-height:0}
+	.clearfix:after {clear:both;font-size:0; height:0; display:block; visibility:hidden; content:" "; line-height:0}
+	.clearfix {zoom:1}/* for IE6 IE7 */
+	.floatBox{border-bottom: dashed 1px red;padding: 20px 0}
+	.floatBox > div{float: left;margin: 20px;}
+	/*正方形*/
+	.Square { width: 100px; height: 100px; background: #669; text-align: center; }
+	/*矩形*/
+	.rectangle { width: 200px; height: 100px; background: #669; }
+	/*梯形*/
+	.trapezoid { border-bottom: 100px solid #669; border-left: 50px solid transparent; border-right: 50px solid transparent; height: 0; width: 100px; }
+	/*平行四边形*/
+	.parallelogram { width: 150px; height: 100px; transform: skew(-20deg); background: #669;margin-left:20px; }
+	/*三角形*/
+	.triangle-up { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid #669; }
+	.triangle-down { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 100px solid #669; }
+	.triangle-left { width: 0; height: 0; border-top: 50px solid transparent; border-right: 100px solid #669; border-bottom: 50px solid transparent; }
+	.triangle-right { width: 0; height: 0; border-top: 50px solid transparent; border-left: 100px solid #669; border-bottom: 50px solid transparent; }
+	.triangle-updown { width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-bottom: 100px solid #669;position:relative; transform: translate(0,-25px);}
+	.triangle-updown:after {content:" "; width: 0; height: 0; border-left: 50px solid transparent; border-right: 50px solid transparent; border-top: 100px solid #669;position:absolute;top:50px;left:-50px;}
+	.triangle-topleft { width: 0; height: 0; border-top: 100px solid #669; border-right: 100px solid transparent; }
+	.triangle-topright { width: 0; height: 0; border-top: 100px solid #669; border-left: 100px solid transparent; }
+	.triangle-bottomleft { width: 0; height: 0; border-bottom: 100px solid #669; border-right: 100px solid transparent; }
+	.triangle-bottomright { width: 0; height: 0; border-bottom: 100px solid #669; border-left: 100px solid transparent; }
+	/*圆形 主要利用了css3.0的圆角属性 border-radius 适当的调整大小会有不同的效果*/
+	.circle { width: 100px; height: 100px; background: #669; -moz-border-radius: 50px; -webkit-border-radius: 50px; border-radius: 50px; }
+	.circle-circle { width: 100px; height: 100px; border:20px solid #669;background: #fff; -moz-border-radius: 100px; -webkit-border-radius: 100px; border-radius: 100px; }
+	.circle-up { width: 100px; height: 0px;border:0 solid transparent;border-top:100px solid #669;border-right:100px solid #669;  -moz-border-radius: 100px 100px 0 0; -webkit-border-radius: 100px 100px 0 0; border-radius: 100px 100px 0 0; }
+	.circle-down { width: 100px; height: 0px;border:0 solid transparent;border-bottom:100px solid #669;border-right:100px solid #669;  -moz-border-radius:0 0 100px 100px; -webkit-border-radius:0 0 100px 100px; border-radius:0 0 100px 100px; }
+	.circle-left { width: 100px; height: 0px;border:0 solid transparent;border-bottom:100px solid #669;border-top:100px solid #669;  -moz-border-radius:100px 0 0 100px; -webkit-border-radius:100px 0 0 100px; border-radius:100px 0 0 100px; }
+	.circle-right { width: 100px; height: 0px;border:0 solid transparent;border-bottom:100px solid #669;border-top:100px solid #669;  -moz-border-radius:0 100px 100px 0; -webkit-border-radius:0 100px 100px 0; border-radius:0 100px 100px 0; }
+	.circle-lefttop { width: 100px; height: 0px;border:0 solid transparent;border-top:100px solid #669;  -moz-border-radius:0 100px 100px 0; -webkit-border-radius:0 100px 100px 0; border-radius:100px 0 0 0; }
+	.circle-righttop { width: 100px; height: 0px;border:0 solid transparent;border-top:100px solid #669;  -moz-border-radius:0 100px 0 0; -webkit-border-radius:0 100px 0 0; border-radius:0 100px 0 0; }
+	.circle-rightbottom { width: 100px; height: 0px;border:0 solid transparent;border-bottom:100px solid #669;  -moz-border-radius:0 0 100px 0; -webkit-border-radius:0 0 100px 0; border-radius:0 0 100px 0; }
+	.circle-leftbottom { width: 100px; height: 0px;border:0 solid transparent;border-bottom:100px solid #669;  -moz-border-radius:0 0 0 100px; -webkit-border-radius:0 0 0 100px; border-radius:0 0 0 100px; }
+	/*适当的调整边框宽度和圆角得到的效果*/
+	.tail-lefttop{border: 0 solid transparent; border-top:30px solid #669;-moz-border-radius:100px 0 0 0;-webkit-border-radius:100px 0 0 0;border-radius:100px 0 0 0;width:100px;height:100px;}
+	.tail-righttop{border: 0 solid transparent; border-top:30px solid #669;-moz-border-radius:0 100px 0 0;-webkit-border-radius:0 100px 0 0;border-radius:0 100px 0 0;width:100px;height:100px;}
+	.tail-rightbottom{border: 0 solid transparent; border-bottom:30px solid #669;-moz-border-radius:0 0 100px 0;-webkit-border-radius:0 0 100px 0;border-radius:0 0 100px 0;width:100px;height:100px;;}
+	.tail-leftbottom{border: 0 solid transparent; border-bottom:30px solid #669;-moz-border-radius:0 0 0 100px;-webkit-border-radius:0 0 0 100px;border-radius:0 0 0 100px;width:100px;height:100px;}
+	/*提示气泡*/
+	.pop{width:200px;height:100px;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:20px;background:#669;margin-top:20px;position:relative}
+	.pop:after{content: "";border: 0 solid transparent; border-bottom:30px solid #669;-moz-border-radius:0 0 0 200px;-webkit-border-radius:0 0 0 200px;
+	border-radius:0 0 0 200px;width:50px;height:50px;position:relative;margin-top:20px;-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg); -o-transform: rotate(-90deg);position:absolute;top:50px;}
+	/*椭圆提示泡*/
+	.oval-pop{width: 200px; height: 100px; background: #669; -moz-border-radius: 100px / 50px; -webkit-border-radius: 100px / 50px; border-radius: 100px / 50px;
+	margin-bottom:50px;position:relative}
+	.oval-pop:after{content: "";border: 0 solid transparent; border-bottom:30px solid #669;-moz-border-radius:0 0 0 200px;-webkit-border-radius:0 0 0 200px;
+	border-radius:0 0 0 200px;width:50px;height:50px;position:relative;margin-top:20px;-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg); -o-transform: rotate(-90deg);position:absolute;top:50px;left:20px}
+	/*心形*/
+	.heart{width:160px;height:160px;position:relative}
+	.heart:before{content:" ";border: 0 solid transparent; -moz-border-radius:100px;-webkit-border-radius:100px;border-radius:100px 100px 0 0;width:80px;
+	height:120px;background:#669;-moz-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);-webkit-transform: rotate(-45deg);
+	position:absolute;left:20px;}
+	.heart:after{content:" ";border: 0 solid transparent; -moz-border-radius:100px;-webkit-border-radius:100px;border-radius:100px 100px 0 0;width:80px;
+	height:120px;background:#669;-moz-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);-webkit-transform: rotate(45deg);
+	position:absolute;left:48px;top:0px;}
+	</style>
+</head>
+<body>
+<div class="floatBox clearfix">
+	<div class="Square"></div>
+	<div class="rectangleq"></div>
+	<div class="trapezoid"></div>
+	<div class="parallelogram"></div>
+</div>
+<div class="floatBox clearfix">
+	<div class="triangle-up"></div>
+	<div class="triangle-down"></div> 
+	<div class="triangle-left"></div>	
+	<div class="triangle-right"></div>
+	<div class="triangle-updown"></div>
+	<div class="triangle-topleft"></div>
+	<div class="triangle-topright"></div>
+	<div class="triangle-bottomleft"></div>
+	<div class="triangle-bottomright"></div>
+	<div style="border-left:50px solid #060;border-right:50px solid #600;border-bottom:50px solid #f00;border-top:50px solid #00f;width:0px;height:0px;"></div>
+</div>
+<div class="floatBox clearfix">
+	<div class="circle"></div>
+	<div class="circle-circle"></div>
+	<div class="circle-up"></div>
+	<div class="circle-down"></div>
+	<div class="circle-left"></div>
+	<div class="circle-right"></div>
+	<div class="circle-lefttop"></div>
+	<div class="circle-righttop"></div>
+	<div class="circle-rightbottom"></div>
+	<div class="circle-leftbottom"></div>
+
+</div>
+<div class="floatBox clearfix">
+	<div class="tail-lefttop"></div>
+	<div class="tail-righttop"></div>
+	<div class="tail-rightbottom"></div>
+	<div class="tail-leftbottom"></div>
+	<div class="pop"></div>
+	<div class="oval-pop"></div>
+	<div class="heart"></div>
+</div>
+ 
+</body>
+</html>
