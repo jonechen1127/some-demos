@@ -50,18 +50,18 @@
 	<script>
 	;
 	(function($) {
-		var Checkin = function(ele, optinos) {
-			this.ele = ele,
-				this.opt = optinos,
-				this.defaults = {
-					width: 450,
-					height: 'auto',
-					background: '#f90',
-					radius: 10,
-					color: '#fff',
-					padding: 10,
-					dateArray: [1, 2, 4, 6], // 假设已签到的天数+1
-				}
+		var Checkin = function(ele, options) {
+			this.ele = ele;
+			this.opt = options;
+			this.defaults = {
+				width: 450,
+				height: 'auto',
+				background: '#f90',
+				radius: 10,
+				color: '#fff',
+				padding: 10,
+				dateArray: [1, 2, 4, 6], // 假设已签到的天数+1
+			};
 			this.obj = $.extend({}, this.defaults, this.opt);
 		}
 		Checkin.prototype.init = function() {
@@ -158,8 +158,8 @@
 			});
 			e.parents().find('.checkBtn').text("已签到");
 		}
-		$.fn.Checkin = function(optinos) {
-			var checkin = new Checkin(this, optinos);
+		$.fn.Checkin = function(options) {
+			var checkin = new Checkin(this, options);
 			var obj = [checkin.init(), checkin.events()]
 			return obj
 		}
