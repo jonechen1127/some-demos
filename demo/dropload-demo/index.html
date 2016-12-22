@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>dropLoad-demo</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style>
+			*{padding:0;margin:0;list-style:none;}
+			a,input,textarea,button{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+			html,body{height:100%;}
+			a{color:#333;text-decoration:none;}
+			.menu{display:flex;position:absolute;top:0;width:100%;z-index:1;}
+			.menu li{flex:0 0 50%;box-shadow:inset 0 -2px 0 #555;display:flex;align-items:center;justify-content:center;padding:0.625rem 0;font-size:0.7rem;position:relative;}
+			.menu li:first-child::before{content:"";display:block;height:1.5rem;width:1px;background:#d9d9d9;right:0;top:5px;position:absolute;}
+			.menu li.active{color:#007AFF;box-shadow:inset 0 -2px 0 #007AFF;}
+			.tabs{position:absolute;width:100%;height:100%;left:0;top:0;box-sizing:border-box;padding-top:2.5rem;}
+			.tabsContentList{border-bottom:1px solid #DDDDDD;font-size:0.7rem;padding:0.5rem;}
+			.row{display:flex;justify-content:space-between;}
+			.row> div{flex:0 0 50%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+			.row> div:last-child{text-align:right;font-size:0.6rem;color:#999;}
+			em{font-style:normal;}
+			.noContent{font-size:0.6rem;text-align:center;padding:0.6rem 0;color:#999;}
+
+			/* dropload */
+			.dropload-up,.dropload-down{position:relative;height:0;overflow:hidden;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);}
+			.dropload-refresh,.dropload-update,.dropload-load{position:absolute;left:50%;bottom:0;width:100%;height:50px;line-height:50px;text-align:center;-webkit-transform:translate(-50%,0);transform:translate(-50%,0);font-size:0.6rem;}
+			.dropload-load .loading{display:inline-block;height:15px;width:15px;border-radius:100%;margin:6px;border:2px solid #666;border-bottom-color:transparent;vertical-align:middle;-webkit-animation:rotate 0.75s 0 linear infinite;animation:rotate 0.75s 0 linear infinite;font-size:0.6rem;}
+			@-webkit-keyframes rotate{
+				0%{-webkit-transform:rotate(0deg);}
+				50%{-webkit-transform:rotate(180deg);}
+				100%{-webkit-transform:rotate(360deg);}
+			}
+			@keyframes rotate{
+				0%{transform:rotate(0deg);}
+				50%{transform:rotate(180deg);}
+				100%{transform:rotate(360deg);}
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="menu">
+			<li class="active">菜单1</li>
+			<li>菜单2</li>
+		</nav>
+		<div class="tabs">
+			<div id="tab1" class="tabsContent"></div>
+			<div id="tab2" class="tabsContent" style="display: none;"></div>
+		</div>
+		<script src="js/dropload.min.js"></script>
+		<script>
+			var root = document.documentElement;
+			var timer = null;
+			var baseSize = 0;
+
+			function setBaseSize() {
+				baseSize = (root.clientWidth / 320) * 20;
+				baseSize = baseSize > 24 ? 24 : baseSize;
+				root.style.fontSize = baseSize + 'px';
+			}
+			window.addEventListener("resize", function() {
+				timer && clearTimeout(timer);
+				timer = setTimeout(setBaseSize, 300);
+			}, false);
+			setBaseSize();
+
+			var urlPrex = 'http://192.168.0.98:6900/yihao01-switch-api/wygl/complaint/list',
+				token = 'df0dd0be18844d3da246847cb98db3a900865102',
+				unitId = 2004,
+				type = 2,
+				belong = 0,
+				pageSize = 5,
+				pageNo = 1;
+			// 选项卡
+			var itemIndex = 0; // 当前索引
+			var currentPageNoArray = [1, 1] // 当前页
+			var hasContent = [true, false] // 默认当前有无内容
+			var hasMore = [true, true] // 有无更多内容
+			$(".menu li").click(function() {
+				itemIndex = $(this).index();
+				console.log(itemIndex)
+				$(this).addClass('active').siblings().removeClass('active');
+				$('.tabs').children().eq(itemIndex).show().siblings().hide();
+				// 判断，防止点击时候重复追加数据
+				if(hasContent[itemIndex] == false) {
+					getData(itemIndex, currentPageNoArray[itemIndex]);
+				}
+				hasContent[itemIndex] = true;
+				// console.log(hasContent[itemIndex], currentPageNoArray[itemIndex]);
+			})
+
+			// 初始化加载第一页数据，共5条
+			getData(itemIndex, currentPageNoArray[0]);
+			// console.log(itemIndex, currentPageNoArray[0], hasContent[itemIndex]);
+
+			function insertData(objData) {
+				var result = '';
+				var json = objData.data.list;
+				for(var i = 0; i < json.length; i++) {
+					result += "<div class='tabsContentList'><a href='#'><div class='row'><div class='repairText'>" + json[i].title + "</div><div class='repairTimes'>" + json[i].submitTime + "</div></div></a></div>";
+				}
+				return result;
+			}
+
+			function getData(index, currentPageNo) {
+				$.ajax({
+					url: urlPrex + '?token=' + token + '&unitId=' + unitId + '&type=' + type + '&belong=' + belong + '&pageSize=' + pageSize + '&pageNo=' + currentPageNo + '&status=' + (index + 1),
+					type: 'get',
+					dataType: 'json',
+					success: function(data) {
+						if(data.code != 200) {
+							alert(data.desc)
+						} else {
+							console.log(data.data.list.length)
+							if(data.data.list.length < pageSize) {
+								hasMore[index] = false
+								console.log("加载完毕，没有更多数据了",hasMore[index])
+							}
+							$("#tab" + (index + 1)).append(insertData(data));
+						}
+					}
+				})
+			}
+
+			var dropload = $('.tabs').dropload({
+				domUp: {
+					domClass: 'dropload-up',
+					domRefresh: '<div class="dropload-refresh">↓下拉刷新</div>',
+					domUpdate: '<div class="dropload-update">↑释放更新</div>',
+					domLoad: '<div class="dropload-load"><span class="loading"></span><em>加载中...</em></div>'
+				},
+				domDown: {
+					domClass: 'dropload-down',
+					domRefresh: '<div class="dropload-refresh">↑上拉加载更多</div>',
+					domUpdate: '<div class="dropload-update">↓释放加载</div>',
+					domLoad: '<div class="dropload-load"><span class="loading"></span><em>加载中...</em></div>'
+				},
+				// 下拉刷新
+				loadUpFn: function(me) {
+					$("#tab" + (itemIndex + 1)).html('');
+					hasMore[itemIndex] = true;
+					currentPageNoArray[itemIndex] = 1
+					getData(itemIndex, currentPageNoArray[itemIndex]);
+					me.resetload();
+				},
+				// 上拉加载更多
+				loadDownFn: function(me) {
+					currentPageNoArray[itemIndex]++;					 
+					getData(itemIndex, currentPageNoArray[itemIndex]);
+					console.log(hasMore[itemIndex] )
+					if(hasMore[itemIndex] == false) {
+						if($("#tab" + (itemIndex + 1)).find(".noContent").length == 0) {
+							$("#tab" + (itemIndex + 1)).append("<div class='noContent'>没有更多数据了...</div>")
+						}
+					} else {
+						$("#tab" + (itemIndex + 1)).find(".noContent").remove()
+					}
+					me.resetload();
+				}
+
+			});
+		</script>
+	</body>
+
+</html>
