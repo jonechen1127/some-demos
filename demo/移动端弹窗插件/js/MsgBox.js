@@ -14,7 +14,7 @@
 			var html = '';
 			html += "<div class='MsgBoxMask'><span class='ToastMsg'>" + msg + "</span></div>";
 			$('body').append(html);
-			$(".MsgBoxMask").css({
+			$('.MsgBoxMask').css({
 				position: 'absolute',
 				left: 0,
 				top: 0,
@@ -26,7 +26,7 @@
 				background: 'rgba(0,0,0,.0)',
 				zIndex: 9999,
 			})
-			$(".ToastMsg").css({
+			$('.ToastMsg').css({
 				backgroundColor: 'rgba(0,0,0,.9)',
 				borderRadius: '20px',
 				padding: '8px 12px',
@@ -35,7 +35,7 @@
 				fontSize: '0.8rem'
 			})
 			setTimeout(function() {
-				$(".MsgBoxMask").fadeOut('300', function() {
+				$('.MsgBoxMask').fadeOut('300', function() {
 					$(this).remove();
 				});
 			}, 2000)
@@ -59,7 +59,7 @@
 	}
 	//Css
 	function CreateCSS() {
-		$(".MsgBoxMask").css({
+		$('.MsgBoxMask').css({
 			position: 'absolute',
 			left: 0,
 			top: 0,
@@ -115,25 +115,25 @@
 
 	function AlertClickEnter(callback) {
 		$('.MsgEnter').click(function() {
-			$(".MsgBoxMask").remove();
+			$('.MsgBoxMask').remove();
 			if (typeof callback == 'function') {
 				callback();
 			}
 		});
 	}
 
-	function ConfirmClickCancel(callbackOk) {
+	function ConfirmClickOk(callbackOk) {
 		$('.MsgCancel').click(function() {
-			$(".MsgBoxMask").remove();
+			$('.MsgBoxMask').remove();
 			if (typeof callbackOk == 'function') {
 				callbackOk();
 			}
 		});
 	}
 
-	function ConfirmClickOk(callbackCancel) {
+	function ConfirmClickCancel(callbackCancel) {
 		$('.MsgOk').click(function() {
-			$(".MsgBoxMask").remove();
+			$('.MsgBoxMask').remove();
 			if (typeof callbackCancel == 'function') {
 				callbackCancel();
 			}
