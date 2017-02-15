@@ -59,7 +59,7 @@
 	}
 	//Css
 	function CreateCSS() {
-		$('.MsgBoxMask').css({
+		$(".MsgBoxMask").css({
 			position: 'absolute',
 			left: 0,
 			top: 0,
