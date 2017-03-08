@@ -15,7 +15,7 @@
 			html += "<div class='MsgBoxMask'><span class='ToastMsg'>" + msg + "</span></div>";
 			$('body').append(html);
 			$('.MsgBoxMask').css({
-				position: 'absolute',
+				position: 'fixed',
 				left: 0,
 				top: 0,
 				width: '100%',
