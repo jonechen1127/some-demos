@@ -1,21 +1,44 @@
 <!doctype html>
 <html>
-    <head>
-        <title>LocalStorage</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-        <link rel="stylesheet" href="http://www.jcpeixun.com/lesson1/css/web_reset.css">
-        <style>
-            #count{width:800px;height:500px;background-color:#fff;margin:0 auto;border: 1px solid #f90;padding: 5px;display: block;}
-            #sub{ margin: 0 auto; height: 40px;line-height: 40px;padding: 0 20px;display: block;}
-        </style>
-        <script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
-    </head>
-    <body>
-        <form method="post" action="">
-            <textarea id="count" name="count"></textarea><br />
-            <input type="button" name="button" id="sub" value="提交">
-        </form>
-        <script>
+
+<head>
+    <title>LocalStorage</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        font: 14px/1.8em 'microsoft yahei';
+    }
+
+    #count {
+        width: 800px;
+        height: 500px;
+        background-color: #fff;
+        margin: 0 auto;
+        border: 1px solid #f90;
+        padding: 5px;
+        display: block;
+    }
+
+    #sub {
+        margin: 0 auto;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        display: block;
+    }
+    </style>
+    <script src="http://cdn.staticfile.org/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <form method="post" action="">
+        <textarea id="count" name="count"></textarea>
+        <br />
+        <input type="button" name="button" id="sub" value="提交">
+    </form>
+    <script>
         $(function() {
             var data = new Array();
             var json = "";
@@ -35,6 +58,7 @@
                 location.href = 'see.html';
             });
         })
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>
