@@ -1,7 +1,7 @@
 ## Some-Demos
 记录工作中写的一些demo，不断更新吧...
 
-## Demo地址预览
+## Demo preview
 
 * [MsgBox移动端常用的弹窗插件](http://jonechen1127.github.io/some-demos/MsgBox/index.html)
 * [移动端图片画廊效果](http://jonechen1127.github.io/some-demos/PhotoSwipe/index.html)
