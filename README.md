@@ -4,7 +4,7 @@
 ### Demo地址预览
 
 * [MsgBox移动端常用的弹窗插件](http://jonechen1127.github.io/some-demos/MsgBox/index.html)
-* [移动断图片画廊效果](http://jonechen1127.github.io/some-demos/PhotoSwipe/index.html)
+* [移动端图片画廊效果](http://jonechen1127.github.io/some-demos/PhotoSwipe/index.html)
 * [Html5存储](http://jonechen1127.github.io/some-demos/Storage/editor.html)
 * [Css3实现gif动画图片效果](http://jonechen1127.github.io/some-demos/bird/index.html)
 * [Css3一些动画效果](http://jonechen1127.github.io/some-demos/css3-hamburger-button/index.html)
