@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CSS3 spirit精灵动画</title>
+    <link rel="stylesheet" href="">
+    <style>
+    .bird {
+        background: url(./images/bird.png);
+        width: 140px;
+        height: 85px;
+        animation: bird 2s steps(8) infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -43px;
+        margin-left: -70px;
+    }
+
+    @keyframes bird {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: -800% 0px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="bird"></div>
+</body>
+
+</html>

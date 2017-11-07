@@ -1,3 +1,0 @@
-﻿如何直接在github上预览html网页效果
-
-在要浏览的demo地址前面加上 http://htmlpreview.github.io/? 即可！

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>按需加载</title>
+    <style>
+        *{padding:0;margin:0;list-style:none;}
+        a,input,textarea,button{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+        html,body{height:100%;}
+        a{color:#333;text-decoration:none;}
+        .header{height:44px;line-height:44px;border-bottom:1px solid #ccc;background-color:#eee;text-align:center;}
+        .list li a{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-ms-flex-align:center;-webkit-box-align:center;box-align:center;-webkit-align-items:center;align-items:center;padding:3.125%;border-bottom:1px solid #d9d9d9;color:#333;text-decoration:none;}
+        .list_img{width:4rem;height:4rem;background-position:center;background-repeat:no-repeat;background-size:cover;border:1px solid #d9d9d9;}
+        .list_text{margin-left:10px;-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;line-height:1.2em;}
+        .list_text h1{font-size:0.8rem;font-weight:normal;font-weight:bold;}
+        .list_text p{color:#888;font-size:0.6rem;}
+        .opacity{-webkit-animation:opacity 0.3s linear;animation:opacity 0.3s linear;}
+        @-webkit-keyframes opacity{
+            0%{opacity:0;}
+            100%{opacity:1;}
+        }
+        @keyframes opacity{
+            0%{opacity:0;}
+            100%{opacity:1;}
+        }
+        .ipt{display:block;width:100%;height:44px;line-height:24px;box-sizing:border-box;padding:10px;border:0 none;text-align:center;font-size:1rem;font-weight:normal;}
+    </style>
+    <link rel="stylesheet" href="dist/dropload.css">
+</head>
+
+<body>
+    <div class="header">
+        <input type="text" class="ipt" placeholder="请输入显示的手机数量">
+    </div>
+    <div class="content">
+        <ul class="list"></ul>
+    </div>
+    <!-- jQuery1.7以上 或者 Zepto 二选一，不要同时都引用 -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="dist/dropload.min.js"></script>
+    <script>
+    $(function() {
+        var timer;
+        $('.header .ipt').on('input', function() {
+            var _length = $(this).val();
+            // 如果输入值不是数字或者是空，就跳出
+            if (isNaN(_length) || _length === '') {
+                return false;
+            }
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                // 清空内容
+                $('.list').html('');
+                $('.dropload-down').remove();
+
+                var counter = 0;
+                // 每页展示4个
+                var num = 4;
+                var pageStart = 0,
+                    pageEnd = 0;
+                // dropload
+                $('.content').dropload({
+                    scrollArea: window,
+                    loadDownFn: function(me) {
+                        $.ajax({
+                            type: 'GET',
+                            url: 'json/more.json',
+                            dataType: 'json',
+                            success: function(data) {
+                                var result = '';
+                                counter++;
+                                pageEnd = num * counter;
+                                pageStart = pageEnd - num;
+                                    console.log(data)
+                                for (var i = pageStart; i < pageEnd; i++) {
+                                    result += "<li class='opacity'><a href='#'><div class='list_img' style='background-image:url(" + data.lists[i].pic + ")'></div><div class='list_text'><h1>" + data.lists[i].title + "</h1><p>" + data.lists[i].date + "</p></div></a></li>";
+                                    if ((i + 1) >= _length || (i + 1) >= data.lists.length) {
+                                        // 锁定
+                                        me.lock();
+                                        // 无数据
+                                        me.noData();
+                                        break;
+                                    }
+                                }
+                                // 为了测试，延迟1秒加载
+                                setTimeout(function() {
+                                    $('.list').append(result);
+                                    // 每次数据加载完，必须重置
+                                    me.resetload();
+                                }, 1000);
+                            },
+                            error: function(xhr, type) {
+                                alert('Ajax error!');
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+            }, 500);
+        });
+    });
+    </script>
+</body>
+
+</html>
