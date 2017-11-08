@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Init-from-dom</title>
+    <link rel="stylesheet" type="text/css" href="dist/photoswipe.css">
+    <link rel="stylesheet" type="text/css" href="dist/default-skin/default-skin.css">
+    <!--[if lt IE 9]>
+    	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+    <style type="text/css">
+		*{padding:0;margin:0;list-style:none;}
+		h1{text-align:center;padding:20px 0;font-size:24px;width:80%;margin:0 auto;}
+		.my-gallery{display:flex;padding-top:0;justify-content:space-between;align-items:center;width:80%;margin:0 auto;border:1px solid #d9d9d9;padding:20px 10px;}
+		.my-gallery figure{margin:0 10px;}
+		.my-gallery figure img{max-width:100%}
+		.my-gallery figure figcaption{text-align:center;padding-top:10px;}    
+    </style>
+</head>
+
+<body>
+    <h1>PhotoSwipe演示</h1>
+    <div class="my-gallery">
+        <figure>
+            <a href="images/1.jpg" data-size="1600x1066">
+	          	<img src="images/1.jpg" />
+	      	</a>
+            <figcaption itemprop="caption description">Image caption 1</figcaption>
+        </figure>
+        <figure>
+            <a href="images/2.jpg" data-size="1600x1066">
+	          	<img src="images/2.jpg" />
+	      	</a>
+            <figcaption itemprop="caption description">Image caption 2</figcaption>
+        </figure>
+        <figure>
+            <a href="images/3.jpg" data-size="1600x1066">
+	          	<img src="images/3.jpg" />
+	      	</a>
+            <figcaption itemprop="caption description">Image caption 3</figcaption>
+        </figure>
+        <figure>
+            <a href="images/4.jpg" data-size="1600x1066">
+	          	<img src="images/4.jpg" />
+	      	</a>
+            <figcaption itemprop="caption description">Image caption 4</figcaption>
+        </figure>
+    </div>
+    <script type="text/javascript" src="dist/photoswipe.min.js"></script>
+    <script type="text/javascript" src="dist/photoswipe-ui-default.min.js"></script>
+    <script type="text/javascript" src="js/photoswipe-html.js"></script>
+    <script type="text/javascript" src="js/photoswipe-init-from-dom.js"></script>
+    <script type="text/javascript">
+    	initPhotoSwipeFromDOM('.my-gallery');
+    </script>
+</body>
+
+</html>
