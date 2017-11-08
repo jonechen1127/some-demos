@@ -1,57 +1,78 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0">
-		<title>PhotoSwipe演示</title>
-		<!-- Core CSS file -->
-		<style>
-			*{padding: 0;margin: 0;list-style: none;}
-			h1{padding: 20px 2%;font-size: 20px;padding-bottom: 0}
-			.lightgallery{border:1px solid #d9d9d9;padding: 20px 10px;margin: 2%;display: flex;justify-content: space-between;}
-			.lightgallery figure{ margin: 0 10px;}
-			.lightgallery figure img{max-width: 100%; }
-		</style>
-		<link rel="stylesheet" href="css/photoswipe.css">
-		<link rel="stylesheet" href="default-skin/default-skin.css">
-		<script src="http://apps.bdimg.com/libs/jquery/1.10.1/jquery.min.js"></script>
-		
-		
-	</head>
-	<body>
-		<h1>PhotoSwipe演示</h1>
-		<div class="lightgallery" data-pswp-uid="1" id="photoSwipe-demo">
-			<figure>
-				<div>
-					<a href="images/1.jpg" data-size="1600x1066"><img src="images/1.jpg"></a>
-				</div>
-			</figure>
-			<figure>
-				<div>
-					<a href="images/2.jpg" data-size="1600x1066"><img src="images/2.jpg"></a>
-				</div>
-			</figure>
-			<figure>
-				<div>
-					<a href="images/3.jpg" data-size="1600x1066"><img src="images/3.jpg"></a>
-				</div>
-			</figure>
-			<figure>
-				<div>
-					<a href="images/4.jpg" data-size="1600x1066"><img src="images/4.jpg"></a>
-				</div>
-			</figure>
-		</div>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0">
+    <title>PhotoSwipe演示</title>
+    <!-- Core CSS file -->
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
 
-		<!-- 启动代码 -->
-		<script src="js/photoswipe-html.js"></script>
-		<script src="js/photoswipe.min.js"></script>
-		<script src="js/photoswipe-ui-default.min.js"></script>
-		<script src="js/photoswipe-demo.js"></script>
-		<script>
-			// 调用图片画廊		
-			initPhotoSwipeFromDOM('#photoSwipe-demo');		
-		</script>
-	</body>
+    h1 {
+        padding: 20px 2%;
+        font-size: 20px;
+        padding-bottom: 0
+    }
+
+    .lightgallery {
+        border: 1px solid #d9d9d9;
+        padding: 20px 10px;
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .lightgallery figure {
+        margin: 0 10px;
+    }
+
+    .lightgallery figure img {
+        max-width: 100%;
+    }
+    </style>
+    <link rel="stylesheet" href="css/photoswipe.css">
+    <link rel="stylesheet" href="default-skin/default-skin.css">
+   	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+    <h1>PhotoSwipe演示</h1>
+    <div class="lightgallery" data-pswp-uid="1" id="photoSwipe-demo">
+        <figure>
+            <div>
+                <a href="images/1.jpg" data-size="1600x1066"><img src="images/1.jpg"></a>
+            </div>
+        </figure>
+        <figure>
+            <div>
+                <a href="images/2.jpg" data-size="1600x1066"><img src="images/2.jpg"></a>
+            </div>
+        </figure>
+        <figure>
+            <div>
+                <a href="images/3.jpg" data-size="1600x1066"><img src="images/3.jpg"></a>
+            </div>
+        </figure>
+        <figure>
+            <div>
+                <a href="images/4.jpg" data-size="1600x1066"><img src="images/4.jpg"></a>
+            </div>
+        </figure>
+    </div>
+    <!-- 启动代码 -->
+	<script type="text/javascript" src="js/photoswipe.min.js"></script>
+	<script type="text/javascript" src="js/photoswipe-ui-default.min.js"></script>
+	<script type="text/javascript" src="js/photoswipe-html.js"></script>
+	<script type="text/javascript" src="js/photoswipe-demo.js"></script>
+    <script>
+    // 调用图片画廊		
+    initPhotoSwipeFromDOM('#photoSwipe-demo');
+    </script>
+</body>
+
 </html>
