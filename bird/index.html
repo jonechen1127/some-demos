@@ -1,37 +1,17 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CSS3 spirit精灵动画</title>
-    <link rel="stylesheet" href="">
-    <style>
-    .bird {
-        background: url(./images/bird.png);
-        width: 140px;
-        height: 85px;
-        animation: bird 2s steps(8) infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -43px;
-        margin-left: -70px;
-    }
-
-    @keyframes bird {
-        from {
-            background-position: 0 0;
-        }
-        to {
-            background-position: -800% 0px;
-        }
-    }
-    </style>
+	<meta charset="UTF-8">
+	<title>多种方法实现H5网页GIF图片动画效果；</title>
+	<style type="text/css">
+		.menu{width: 450px;}
+		.menu a{display: block;color: #333;text-decoration: none;border: 1px dashed #333;padding: 10px 0;margin: 15px;padding-left: 10px;}
+	</style>
 </head>
-
 <body>
-    <div class="bird"></div>
+	<div class="menu">
+		<a href="css3-gif.html">利用css3 animation的steps实现spirit精灵动画效果</a>
+		<a href="canvas-gif.html">利用html5 canvas实现gif图片动画效果</a>
+	</div>
 </body>
-
 </html>
