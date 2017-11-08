@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>仿微信可换肤的CSS3美化表单</title>
+    <style>
+    	*{padding: 0; margin: 0;font-family: "Microsoft Yahei","Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;font-size: 14px; }	
+		h1{text-align:center;padding: 25px 0;font-size: 24px;}
+		.container{width:80%;border:1px solid #ccc;padding:30px;margin:0 auto;position:relative;}
+		.container h2{height:30px;top:25px;right:30px;text-align:right;position:absolute;}
+		.container h2 span{display:inline-block;width:16px;height:16px;margin:2px;background:red;}
+		.container p{font-size:16px;border-bottom:1px dashed #4cd964;padding:12px 0;padding-top:9px;}
+		.toggle{position:relative;display:inline-block;pointer-events:auto;width:100%;border-bottom:1px dashed #ccc;}
+		.labelTxt{display:inline-block;height:51px;line-height:51px;float:left;}
+
+		/*switch*/
+		.toggle .track-switch{transition:all ease-in-out 0.25s 0s;display:inline-block;box-sizing:border-box;width:51px;height:31px;border:solid 2px #e6e6e6;border-radius:20px;background-color:#fff;content:' ';cursor:pointer;pointer-events:none;float:left;margin:10px 10px 0 0;position:relative;}
+		.toggle .track-switch .handle{position:absolute;top:0px;left:0;width:27px;height:27px;border-radius:100%;background:#fff;box-shadow:0 2px 7px rgba(0,0,0,0.35),0 1px 1px rgba(0,0,0,0.15);transition:background,transform 0.3s cubic-bezier(0,1.1,1,1.1) 0s;}
+		.toggle input:checked+.track-switch .handle{-webkit-transform:translate3d(20px,0,0);transform:translate3d(20px,0,0);background-color:#fff;}
+		.toggle input:checked+.track-switch{border-color:#4cd964;background-color:#4cd964;}
+
+		/*checkbox*/
+		.toggle .track-checkbox{transition:all ease-in-out 0.25s 0s;display:inline-block;box-sizing:border-box;width:31px;height:31px;border:solid 2px #e6e6e6;border-radius:100%;background-color:#fff;content:' ';cursor:pointer;pointer-events:none;float:left;margin:8px 10px 0 0;position:relative;}
+		.toggle .track-checkbox .handle{position:absolute;top:0px;left:0;width:27px;height:27px;border-radius:100%;transition:background,visibility,transform 0.3s cubic-bezier(0,1.1,1,1.1) 0s;}
+		.toggle .track-checkbox .handle::before{content:" ";left:9px;top:12px;position:absolute;width:2px;height:30%;background:#4cd964;transform:rotate(-40deg);transition:all 0.3s cubic-bezier(0,1.1,1,1.1) 0s;visibility:hidden;}
+		.toggle .track-checkbox .handle::after{content:" ";left:16px;top:6px;position:absolute;width:2px;height:58%;background:#4cd964;transform:rotate(-135deg);transition:all 0.3s cubic-bezier(0,1.1,1,1.1) 0s;visibility:hidden;}
+		.toggle input:checked+.track-checkbox{border-color:#4cd964;background-color:#4cd964;}
+		.toggle input:checked+.track-checkbox .handle::before{visibility:visible;background:#fff;}
+		.toggle input:checked+.track-checkbox .handle::after{visibility:visible;background:#fff;}
+
+		/*radio*/
+		.toggle .track-radio{transition:all ease-in-out 0.25s 0s;display:inline-block;box-sizing:border-box;width:31px;height:31px;border:solid 2px #e6e6e6;border-radius:100%;background-color:#fff;content:' ';cursor:pointer;pointer-events:none;float:left;margin:8px 10px 0 0;position:relative;}
+		.toggle .track-radio .handle{position:absolute;top:0px;left:0;width:27px;height:27px;border-radius:100%;transition:background,visibility,transform 0.3s cubic-bezier(0,1.1,1,1.1) 0s;}
+		.toggle .track-radio .handle::before{content:" ";left:9px;top:12px;position:absolute;width:2px;height:30%;background:#4cd964;transform:rotate(-40deg);transition:all 0.3s cubic-bezier(0,1.1,1,1.1) 0s;visibility:hidden;}
+		.toggle .track-radio .handle::after{content:" ";left:16px;top:6px;position:absolute;width:2px;height:58%;background:#4cd964;transform:rotate(-135deg);transition:all 0.3s cubic-bezier(0,1.1,1,1.1) 0s;visibility:hidden;}
+		.toggle input:checked+.track-radio{border-color:#4cd964;background-color:#4cd964;}
+		.toggle input:checked+.track-radio .handle::before{visibility:visible;background:#fff;}
+		.toggle input:checked+.track-radio .handle::after{visibility:visible;background:#fff;}
+
+		/*皮肤*/
+		.red input:checked+.track-switch{border-color:#ef473a;background-color:#ef473a;}
+		.red input:checked+.track-checkbox{border-color:#ef473a;background-color:#ef473a;}
+		.red .track-checkbox .handle::before{background:#ef473a;}
+		.red .track-checkbox .handle::after{background:#ef473a;}
+		.red .track-radio .handle::before{background:#ef473a;}
+		.red .track-radio .handle::after{background:#ef473a;}
+		.red input:checked+.track-radio{border-color:#ef473a;background-color:#ef473a;}
+		.yellow input:checked+.track-switch{border-color:#f90;background-color:#f90;}
+		.yellow input:checked+.track-checkbox{border-color:#f90;background-color:#f90;}
+		.yellow .track-checkbox .handle::before{background:#f90;}
+		.yellow .track-checkbox .handle::after{background:#f90;}
+		.yellow .track-radio .handle::before{background:#f90;}
+		.yellow .track-radio .handle::after{background:#f90;}
+		.yellow input:checked+.track-radio{border-color:#f90;background-color:#f90;}
+		.blue input:checked+.track-switch{border-color:#0c63ee;background-color:#0c63ee;}
+		.blue input:checked+.track-checkbox{border-color:#0c63ee;background-color:#0c63ee;}
+		.blue .track-checkbox .handle::before{background:#0c63ee;}
+		.blue .track-checkbox .handle::after{background:#0c63ee;}
+		.blue .track-radio .handle::before{background:#0c63ee;}
+		.blue .track-radio .handle::after{background:#0c63ee;}
+		.blue input:checked+.track-radio{border-color:#0c63ee;background-color:#0c63ee;}
+		.dark input:checked+.track-switch{border-color:#505050;background-color:#505050;}
+		.dark input:checked+.track-checkbox{border-color:#505050;background-color:#505050;}
+		.dark .track-checkbox .handle::before{background:#505050;}
+		.dark .track-checkbox .handle::after{background:#505050;}
+		.dark .track-radio .handle::before{background:#505050;}
+		.dark .track-radio .handle::after{background:#505050;}
+		.dark input:checked+.track-radio{border-color:#505050;background-color:#505050;}
+    </style>
+</head>
+
+<body>
+    <h1>仿微信可换肤的CSS3美化表单</h1>
+    <div class="container" id="skin">
+        <h2>
+	        <span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</h2>
+        <p>选择开关</p>
+        <label class="toggle clearfix">
+            <input type="checkbox" checked style="display: none;">
+            <div class="track-switch">
+                <div class="handle"></div>
+            </div>
+            <div class="labelTxt">是否同意条款</div>
+        </label>
+        <p>复选列表项</p>
+        <label class="toggle clearfix">
+            <input type="checkbox" checked style="display: none;">
+            <div class="track-checkbox">
+                <div class="handle"></div>
+            </div>
+            <div class="labelTxt">我的职业是前端工程师</div>
+        </label>
+        <label class="toggle clearfix">
+            <input type="checkbox" checked style="display: none;">
+            <div class="track-checkbox">
+                <div class="handle"></div>
+            </div>
+            <div class="labelTxt">我的职业是老师</div>
+        </label>
+        <p>单选列表项</p>
+        <label class="toggle clearfix">
+            <input type="radio" checked style="display: none;" name="sex">
+            <div class="track-radio">
+                <div class="handle"></div>
+            </div>
+            <div class="labelTxt">姓别：男</div>
+        </label>
+        <label class="toggle clearfix">
+            <input type="radio" style="display: none;" name="sex">
+            <div class="track-radio">
+                <div class="handle"></div>
+            </div>
+            <div class="labelTxt">姓别：女</div>
+        </label>
+    </div>
+    <script>
+	    var aspan = document.querySelector('#skin').querySelectorAll('span');
+	    var color = ["#ef473a", "#f90", "#0c63ee", "#505050"];
+	    var classArray = ["red", "yellow", "blue", "dark"];
+	    for (var i = 0; i < aspan.length; i += 1) {
+	        aspan[i].index = i;
+	        aspan[i].style.background = color[i];
+	        aspan[i].onclick = function() {
+	            var label = document.querySelectorAll('label');
+	            for (var i = 0; i < label.length; i += 1) {
+	                var className = label[i].className.substring(0, 15);
+	                switch (this.index) {
+	                    case 0:
+	                        label[i].className = className + " " + classArray[0];
+	                        break;
+	                    case 1:
+	                        label[i].className = className + " " + classArray[1];
+	                        break;
+	                    case 2:
+	                        label[i].className = className + " " + classArray[2];
+	                        break;
+	                    case 3:
+	                        label[i].className = className + " " + classArray[3];
+	                        break;
+	                }
+	            }
+	        }
+	    }
+    </script>
+</body>
+
+</html>

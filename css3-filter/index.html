@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css3属性 filter</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .imgbox {
+        width: 860px;
+        margin: 20px auto;
+        height: 256px;
+    }
+
+    img {
+        display: block;
+        width: 410px;
+        float: left;
+    }
+
+    img:last-of-type {
+        float: right;
+    }
+
+    .box {
+        width: 860px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input[type="button"] {
+        font-size: 14px;
+        padding: 10px 12px;
+        border: none;
+    }
+
+    input[type="button"].hover,
+    input[type="button"]:hover {
+        background: #2BA5D3;
+        color: #fff;
+    }
+
+    .inner {
+        width: 860px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 15px 0;
+        font-size: 20px;
+        font-family: 'microsoft yahei'
+    }
+    </style>
+    <script>
+    window.onload = function() {
+        var img = document.querySelectorAll('img')[1];
+        var btn = document.querySelectorAll('input');
+        var div = document.querySelector('.inner');
+        img.style.WebkitFilter = 'grayscale(0.8)';
+        div.innerHTML = 'grayscale：灰度，值为0-1之间小数';
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function() {
+                switch (this.value) {
+                    case 'grayscale':
+                        img.style.WebkitFilter = 'grayscale(0.8)';
+                        break;
+                    case 'sepia':
+                        img.style.WebkitFilter = 'sepia(0.8)';
+                        break;
+                    case 'saturate':
+                        img.style.WebkitFilter = 'saturate(50)';
+                        break;
+                    case 'hue-rotate':
+                        img.style.WebkitFilter = 'hue-rotate(90deg)';
+                        break;
+                    case 'invert':
+                        img.style.WebkitFilter = 'invert(0.3)';
+                        break;
+                    case 'opacity':
+                        img.style.WebkitFilter = 'opacity(0.2)';
+                        break;
+                    case 'brightness':
+                        img.style.WebkitFilter = 'brightness(0.8)';
+                        break;
+                    case 'contrast':
+                        img.style.WebkitFilter = 'contrast(210)';
+                        break;
+                    case 'blur':
+                        img.style.WebkitFilter = 'blur(5px)';
+                        break;
+                    case 'drop-shadow':
+                        img.style.WebkitFilter = 'drop-shadow(10px 10px 5px #aaa)';
+                        break;
+                }
+                div.innerHTML = this.value + '：' + this.getAttribute('data-info');
+            }
+
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div class="imgbox" id="imgBox">
+        <img src="images/1-1600.jpg">
+        <img src="images/1-1600.jpg">
+    </div>
+    <div class="inner"></div>
+    <div class="box">
+        <input type="button" value="grayscale" data-info="灰度，值为0-1之间小数">
+        <input type="button" value="sepia" data-info="褐色，值为0-1之间小数">
+        <input type="button" value="saturate" data-info="饱和度，值为num">
+        <input type="button" value="hue-rotate" data-info="色相，值为0-360之间的色轮数">
+        <input type="button" value="invert" data-info="反色，值为0-1之间小数">
+        <input type="button" value="opacity" data-info="不透明度，值为0-1之间小数">
+        <input type="button" value="brightness" data-info="亮度，值为0-1之间小数">
+        <input type="button" value="contrast" data-info="对比度，值为num">
+        <input type="button" value="blur" data-info="模糊，值为length">
+        <input type="button" value="drop-shadow" data-info="阴影，同box-shadow写法">
+    </div>
+</body>
+
+</html>
