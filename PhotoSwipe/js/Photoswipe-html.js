@@ -1,5 +1,5 @@
 var gelleryHtml = "";
-gelleryHtml += "<div id='gallery' class='pswp' tabindex='-1' role='dialog' aria-hidden='true'>";
+gelleryHtml += "<div class='pswp' tabindex='-1' role='dialog' aria-hidden='true'>";
 gelleryHtml += "<div class='pswp__bg'></div>";
 gelleryHtml += "<div class='pswp__scroll-wrap'>";
 gelleryHtml += "<div class='pswp__container'>";
@@ -23,18 +23,14 @@ gelleryHtml += "</div>";
 gelleryHtml += "</div>";
 gelleryHtml += "</div>";
 gelleryHtml += "<div class='pswp__share-modal pswp__share-modal--hidden pswp__single-tap'>";
-gelleryHtml += "<div class='pswp__share-tooltip'>";
-gelleryHtml += "</div>";
+gelleryHtml += "<div class='pswp__share-tooltip'></div>";
 gelleryHtml += "</div>";
 gelleryHtml += "<button class='pswp__button pswp__button--arrow--left' title='Previous (arrow left)'></button>";
 gelleryHtml += "<button class='pswp__button pswp__button--arrow--right' title='Next (arrow right)'></button>";
 gelleryHtml += "<div class='pswp__caption'>";
-gelleryHtml += "<div class='pswp__caption__center'>";
+gelleryHtml += "<div class='pswp__caption__center'><div/>";
 gelleryHtml += "</div>";
 gelleryHtml += "</div>";
 gelleryHtml += "</div>";
 gelleryHtml += "</div>";
-gelleryHtml += "</div>";
-$(function() {
-	$('body').append(gelleryHtml);
-})
+document.body.insertAdjacentHTML('beforeend', gelleryHtml);
