@@ -19,6 +19,6 @@
 * [开发常用Unicode](http://jonechen1127.github.io/some-demos/unicode.html)
 * [CSS3 filter10种特效整理](http://jonechen1127.github.io/some-demos/css3-filter/index.html)
 * [仿微信可换肤的CSS3美化表单](http://jonechen1127.github.io/some-demos/BeautifyForm/index.html)
-
+* [背景Canvas 3D线条动画特效](http://jonechen1127.github.io/some-demos/html5-canvas-3d-background/index.html)
 
 

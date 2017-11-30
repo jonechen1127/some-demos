@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Init-from-dom</title>
+    <title>图片自适应大小</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="dist/photoswipe.css">
@@ -15,39 +15,39 @@
     <style type="text/css">
         *{padding:0;margin:0;list-style:none;}
         h1{text-align:center;padding:20px 0;font-size:24px; margin:0 auto;}
-        .my-gallery{display:flex;padding-top:0;justify-content:space-between;align-items:center; margin:0 2%;border:1px solid #d9d9d9;padding:20px 10px;}
-        .my-gallery figure{margin:0 10px;}
+        .my-gallery{display:flex;padding-top:0;align-items:center; margin:0 2%;border:1px solid #d9d9d9;padding:20px 10px;justify-content: center;}
+        .my-gallery figure{margin:0 10px;width:150px;}
         .my-gallery figure img{max-width:100%}
-        .my-gallery figure figcaption{text-align:center;padding-top:10px;}
     </style>
 </head>
 
 <body>
-    <h1>PhotoSwipe演示</h1>
+    <h1>PhotoSwipe演示--图片自适应大小</h1>
     <div class="my-gallery">
         <figure>
-            <a href="images/1.jpg" data-size="1600x1066">
-                <img src="images/1.jpg" />
+            <a href="images/5.jpg" >
+                <img src="images/5.jpg" />
             </a>
-            <figcaption itemprop="caption description">Image caption 1</figcaption>
         </figure>
         <figure>
-            <a href="images/2.jpg" data-size="1600x1066">
-                <img src="images/2.jpg" />
+            <a href="images/6.jpg" >
+                <img src="images/6.jpg" />
             </a>
-            <figcaption itemprop="caption description">Image caption 2</figcaption>
         </figure>
         <figure>
-            <a href="images/3.jpg" data-size="1600x1066">
-                <img src="images/3.jpg" />
+            <a href="images/7.jpg" >
+                <img src="images/7.jpg" />
             </a>
-            <figcaption itemprop="caption description">Image caption 3</figcaption>
-        </figure>
+        </figure>       
         <figure>
-            <a href="images/4.jpg" data-size="1600x1066">
-                <img src="images/4.jpg" />
+            <a href="images/9.jpg" >
+                <img src="images/9.jpg" />
             </a>
-            <figcaption itemprop="caption description">Image caption 4</figcaption>
+        </figure>
+         <figure>
+            <a href="images/8.jpg" >
+                <img src="images/8.jpg" />
+            </a>
         </figure>
     </div>
     <script type="text/javascript" src="dist/photoswipe.min.js"></script>
@@ -56,6 +56,22 @@
     <script type="text/javascript" src="js/photoswipe-init-from-dom.js"></script>
     <script type="text/javascript">
     initPhotoSwipeFromDOM('.my-gallery');
+    </script>
+    <script type="text/javascript">
+    window.onload = function() {
+        auto_data_size();
+    };
+
+    function auto_data_size() {
+        var imgss = $("figure img");
+        $("figure img").each(function() {
+            var imgs = new Image();
+            imgs.src = $(this).attr("src");
+            var w = imgs.width,
+                h = imgs.height;
+            $(this).parent("a").attr("data-size", "").attr("data-size", w + "x" + h);
+        })
+    };
     </script>
 </body>
 
