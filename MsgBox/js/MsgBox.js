@@ -1,3 +1,9 @@
+/*
+ * @Author: chenjun
+ * @Date:   2018-03-01 13:54:14
+ * @Last Modified by:   chenjun
+ * @Last Modified time: 2018-03-08 09:23:53
+ */
 ;
 (function($) {
     var flexObj = {
@@ -42,9 +48,9 @@
             $('body').append(html);
             $('.MsgBoxMask').css(MsgBoxStyle);
             $('.ToastMsg').css({
-                backgroundColor: 'rgba(0,0,0,.9)',
+            	backgroundColor: 'rgba(20,20,20,.6)',
                 borderRadius: '20px',
-                padding: '8px 12px',
+                padding: '8px 15px',
                 color: '#fff',
                 display: 'inline-block',
             })
@@ -71,7 +77,7 @@
         $('body').append(html);
         CreateCSS();
     }
-    //Css
+    //css
     function CreateCSS() {
         $(".MsgBoxMask").css(MsgBoxStyle).css('background', 'rgba(0,0,0,.4)');
         $(".MsgBox").css({
@@ -89,6 +95,8 @@
             textAlign: 'center',
             borderBottom: '1px solid #d9d9d9',
             padding: '15px 30px',
+            fontSize: 'inherit',
+        	fontWeight: 'normal',
         })
         $(".MsgEnter").css({
             color: '#0894EC',
