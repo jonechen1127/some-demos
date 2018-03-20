@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>css3渐变Demo</title>
-    <style type="text/css">
-    .box {
-        width: 300px;
-        height: 300px;
-        border: 1px solid #d9d9d9;
-        background: linear-gradient(red, blue);
-    }
-    </style>
+	<meta charset="UTF-8">
+	<title>css3 gradient</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style type="text/css">
+        *{padding: 0;margin: 0;list-style:none;}
+		.menu{width: 400px;}
+		.menu a{display: block;color: #333;text-decoration: none;border: 1px dashed #333;padding: 10px 0;margin: 15px;padding-left: 10px;}
+	</style>
 </head>
-
 <body>
-    <div class="box"></div>
-    <select id="select" onchange="change(this)">
-    </select>
-    <script type="text/javascript">
-    var _box = document.querySelector(".box"),
-        deg = html = [];
-    for (var i = 0; i <= 8; i++, deg.push(45 * (i - 1))) {};
-
-    for (var i = 0; i < deg.length; i++) {
-        html += "<option value='" + deg[i] + "deg'>" + deg[i] + "deg</option>";
-    }
-    var _select = document.querySelector('select');
-    _select.innerHTML = html;
-
-    function change(ele) {
-        var deg = ele.value;
-        _box.style.background = "linear-gradient(" + deg + ",red,blue)";
-    }
-    </script>
+	<div class="menu">
+		<a href="linear-gradient-1.html">简单线性渐变</a>
+		<a href="linear-gradient-2.html">复杂线性渐变</a>
+		<a href="radial-gradient-1.html">简单径向渐变</a>
+		<a href="radial-gradient-2.html">复杂径向渐变</a>
+	</div>
 </body>
-
 </html>

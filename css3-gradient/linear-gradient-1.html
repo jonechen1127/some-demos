@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css3渐变Demo</title>
+    <style type="text/css">
+    .box {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #d9d9d9;
+        background: linear-gradient(red, blue);
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <select id="select" onchange="change(this)">
+    </select>
+    <script type="text/javascript">
+    var _box = document.querySelector(".box"),
+        deg = html = [];
+    for (var i = 0; i <= 8; i++, deg.push(45 * (i - 1))) {};
+
+    for (var i = 0; i < deg.length; i++) {
+        html += "<option value='" + deg[i] + "deg'>" + deg[i] + "deg</option>";
+    }
+    var _select = document.querySelector('select');
+    _select.innerHTML = html;
+
+    function change(ele) {
+        var deg = ele.value;
+        _box.style.background = "linear-gradient(" + deg + ",red,blue)";
+    }
+    </script>
+</body>
+
+</html>
