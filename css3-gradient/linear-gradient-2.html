@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css3渐变Demo</title>
+    <style type="text/css">
+    .box {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #d9d9d9;
+        background: linear-gradient(0deg, red, blue);
+        margin-bottom: 10px;
+    }
+
+    * {
+        font-family: consolas;
+        font-size: 14px;
+    }
+
+    #text {
+        background: #fff;
+        padding: 10px;
+        border: 1px dashed #adadad;
+        color: #333;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <span>角度：</span>
+    <select id="select_1" onchange="changeDeg(this)">
+    </select>
+    <span>渐变数值：</span>
+    <select id="select_2" onchange="changeValue(this)">
+    </select>
+    <pre id="text"></pre>
+    <script type="text/javascript">
+    var _box = document.querySelector(".box"),
+        deg = html = [];
+    gradientDeg = gradientValue = 0;
+    for (var i = 0; i <= 8; i++, deg.push(45 * (i - 1))) {};
+
+    for (var i = 0; i < deg.length; i++) {
+        html += "<option value='" + deg[i] + "deg'>" + deg[i] + "deg</option>";
+    }
+    var _selectDeg = document.querySelector('#select_1');
+    _selectDeg.innerHTML = html;
+    // 角度
+    function changeDeg(ele) {
+        gradientDeg = ele.value;
+        changeGradient(gradientDeg, gradientValue);
+    }
+    // 数值
+    var val = [],
+        _html = [];
+
+    // 生成几等份
+    for (var i = 0; i < 5; i++, val.push({ id: i, color: randomColor() })) {};
+
+    for (var i = 0; i < val.length; i++) {
+        _html += "<option value='" + val[i].id + "'>" + val[i].id + "</option>";
+    }
+    var _selectVal = document.querySelector('#select_2');
+    _selectVal.innerHTML = _html;
+
+    function changeValue(ele) {
+        gradientValue = ele.value;
+        changeGradient(gradientDeg, gradientValue);
+    }
+
+    var gradientStyle = "",
+        cc = [];
+
+    function changeGradient(deg, value) {
+        let v = value.toString();
+        switch (v) {
+            case "0":
+                gradientStyle = "linear-gradient(" + deg + ",red,blue)";
+                break;
+            case "1":
+                gradientStyle = "linear-gradient(" + deg + ",red,blue)";
+                break;
+            case "2":
+                gradientStyle = "linear-gradient(" + deg + ",";
+
+                for (var i = 0; i < v; i++) {
+                    cc[i] = val[i].color;
+                }
+                let tt = cc.map(function(ele) {
+                    return ele + ' 50%';
+                })
+                gradientStyle += tt.toString() + ")";
+
+                break;
+            case "3":
+                gradientStyle = "linear-gradient(" + deg + ",";
+
+                for (var i = 0; i < v; i++) {
+                    cc[i] = val[i].color;
+                }
+
+                gradientStyle += cc[0] + ' 33.333%,' + cc[1] + ' 33.333%,' + cc[1] + ' 66.666%,' + cc[2] + ' 66.666%' + ")";
+                break;
+            case "4":
+                gradientStyle = "linear-gradient(" + deg + ",";
+
+                for (var i = 0; i < v; i++) {
+                    cc[i] = val[i].color;
+                }
+
+                gradientStyle += cc[0] + ' 25%,' + cc[1] + ' 25%,' + cc[1] + ' 50%,' + cc[2] + ' 50%,' + cc[2] + ' 75%,' + cc[3] + ' 75%' + ")";
+                break;
+            case "5":
+                gradientStyle = "linear-gradient(" + deg + ",";
+
+                for (var i = 0; i < v; i++) {
+                    cc[i] = val[i].color;
+                }
+
+                gradientStyle += cc[0] + ' 20%,' + cc[1] + ' 20%,' + cc[1] + ' 40%,' + cc[2] + ' 40%,' + cc[2] + ' 60%,' + cc[3] + ' 60%,' + cc[3] + ' 80%,' + cc[4] + ' 80%' + ")";
+                break;
+            default:
+                break;
+        }
+        document.querySelector('#text').innerHTML = '当前线性渐变样式为：' + gradientStyle;
+        document.querySelector('#text').style.display = 'block';
+        _box.style.background = gradientStyle;
+    }
+
+    function randomColor() {
+        return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
+    }
+    </script>
+</body>
+
+</html>
