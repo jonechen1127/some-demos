@@ -17,13 +17,22 @@
         background: linear-gradient(red, blue);
         margin-bottom: 10px;
     }
+
+    #text {
+        background: #fff;
+        padding: 10px;
+        border: 1px dashed #adadad;
+        color: #333;
+        display: none;
+    }
     </style>
 </head>
 
 <body>
     <div class="box"></div>
-    <span>当前角度：</span><select id="select" onchange="change(this)">
-    </select>
+    <span>当前角度：</span>
+    <select id="select" onchange="change(this)"></select>
+    <pre id="text"></pre>
     <script type="text/javascript">
     var _box = document.querySelector(".box"),
         deg = html = [];
@@ -38,6 +47,8 @@
     function change(ele) {
         var deg = ele.value;
         _box.style.background = "linear-gradient(" + deg + ",red,blue)";
+        document.querySelector("#text").innerHTML = "当前渐变样式为：linear-gradient(" + deg + ",red,blue)";
+        document.querySelector("#text").style.display = 'block';
     }
     </script>
 </body>
