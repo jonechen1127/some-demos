@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3-clip-path</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 20px;
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            left: -5%;
+            top: -5%;
+            width: 110%;
+            height: 110%;
+            border: 2px solid #cd0000;
+            box-sizing: border-box;
+            /* background: rgba(30, 30, 30, .6); */
+            /* clip: rect(0 110px 110px 0); 上*/
+            /* clip: rect(0 220px 110px 110px); 右*/
+            /* clip: rect(110px 220px 220px 110px); 下*/
+            /* clip: rect(110px 110px 220px 0); 左*/
+            z-index: 1;
+            animation: borderAround 2.0s infinite linear;
+
+        }
+
+        .box img {
+            display: block;
+            max-width: 100%;
+            height: 100%;
+
+        }
+
+        @keyframes borderAround {
+
+            0%,
+            100% {
+                clip: rect(0 110px 110px 0);
+            }
+
+            25% {
+                clip: rect(0 220px 110px 110px);
+            }
+
+            50% {
+                clip: rect(110px 220px 220px 110px);
+            }
+
+            75% {
+                clip: rect(110px 110px 220px 0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="1-1600.jpg" alt="">
+    </div>
+</body>
+
+</html>
+ 
