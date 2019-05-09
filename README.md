@@ -25,3 +25,6 @@
 * [Css3-clip-path](http://jonechen1127.github.io/some-demos/css3-clip-path.html)
 
 
+### Tips：如以上demo访问不了，请移步[这里](https://dev.tencent.com/u/C-JUN/p/some-demos)。
+
+
