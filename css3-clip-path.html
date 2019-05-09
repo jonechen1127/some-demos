@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>clip-path</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        font: 14px/180% "Helvetica Neue',Helvetica"
+    }
+
+    .box {
+        width: 600px;
+        height: auto;
+        background: rgba(150, 150, 150, .3);
+        margin-bottom: 10px;
+        margin: 0 auto
+    }
+
+    .img {
+        width: 600px;
+        transition: all 0.2s;
+        display: block;
+        overflow: hidden
+    }
+
+    .setion {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 15px;
+        width: 610px;
+    }
+
+    input,
+    select {
+        height: 32px;
+        line-height: 32px;
+        margin: 0 5px;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    input {
+        width: 80px;
+        text-align: center;
+    }
+
+    .setion span {
+        margin: 0 8px;
+    }
+
+    select {
+        padding: 2px;
+        height: 36px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img class="img" src="https://cdn.files.qdfuns.com/video/cover/201805/18/171339qzdurmbr02xhda1m.jpg!/both/600x331/clip/600x331a0a0" alt="">
+    </div>
+    <div class="setion">
+        <span>clip-path:</span>
+        <select onchange="change()">
+            <option value="inset">inset</option>
+            <option value="circle">circle</option>
+            <option value="ellipse">ellipse</option>
+        </select>
+        <form id="form">
+            <div class="area"></div>
+        </form>
+    </div>
+</body>
+<script>
+var oImg = document.querySelector('img');
+var oSelect = document.querySelector('select');
+var oArea = document.querySelector('.area');
+var form = document.querySelector('#form');
+var currentSelect = "inset";
+var map = new Map();
+var strategies = {
+    inset: function() {
+        oArea.innerHTML = `<span>上</span><input type="text" name="up" onblur="keyDown(this)"/><span>右</span><input type="text" name="right" onblur="keyDown(this)"/><span>下</span><input type="text" name="down" onblur="keyDown(this)"/><span>左</span><input type="text" name="left" onblur="keyDown(this)"/>`;
+    },
+    circle: function() {
+        oArea.innerHTML = `<span>r</span><input type="text" name="r" onblur="keyDown(this)"/><span>cx</span><input type="text" name="cx" onblur="keyDown(this)"/><span>cy</span><input type="text" name="cy" onblur="keyDown(this)"/>`
+    },
+    ellipse: function() {
+        oArea.innerHTML = `<span>rx</span><input type="text" name="e_rx" onblur="keyDown(this)"/><span>ry</span><input type="text" name="e_ry" onblur="keyDown(this)"/><span>cx</span><input type="text" name="e_cx" onblur="keyDown(this)"/><span>cy</span><input type="text" name="e_cy" onblur="keyDown(this)"/>`
+    }
+}
+var createInput = function(category) {
+    return strategies[category]()
+}
+
+createInput(currentSelect);
+
+function change() {
+    currentSelect = oSelect.options[oSelect.selectedIndex].value;
+    map.clear();
+    createInput(currentSelect);
+}
+
+
+
+var createStyle = {
+    inset: function() {
+        setMapValue("up");
+        setMapValue("right");
+        setMapValue("down");
+        setMapValue("left");
+        var style = "inset(" + map.get("up") + "px" + " " + map.get("right") + "px" + " " + map.get("down") + "px" + " " + map.get("left") + "px" + ")"
+        oImg.style.clipPath = style;
+    },
+    circle: function() {
+        setMapValue("r");
+        setMapValue("cx");
+        setMapValue("cy");
+        var style = "circle(" + map.get("r") + "px" + " at " + map.get("cx") + "px" + " " + map.get("cy") + "px" + ")";
+        oImg.style.clipPath = style;
+    },
+    ellipse: function() {
+        setMapValue("e_rx");
+        setMapValue("e_ry");
+        setMapValue("e_cx");
+        setMapValue("e_cy");
+        var style = "ellipse(" + map.get("e_rx") + "px" + " " + map.get("e_ry") + "px" + " at " + map.get("e_cx") + "px" + " " + map.get("e_cy") + "px" + ")";
+        console.log(style)
+        oImg.style.clipPath = style;
+    }
+}
+
+function keyDown(e) {
+    var name = e.name;
+    var value = form[name].value || 0;
+    if (isNaN(value)) {
+        alert("输入错误")
+    } else {
+        map.set(name, Number(value));
+        createStyle[currentSelect]();
+        console.log(map)
+    }
+}
+
+function setMapValue(type) {
+    if (!map.get(type)) map.set(type, 0);
+}
+</script>
+
+</html>
