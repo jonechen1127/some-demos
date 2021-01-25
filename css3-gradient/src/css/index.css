@@ -1,0 +1,56 @@
+#container {
+  height: 100%;
+  padding: 50px;
+}
+
+.txt-over-ellis1 .txt-over-ellis {
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.muli-over-ellis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.linear {
+  height: 50px;
+  background: linear-gradient(to right bottom, blue, pink);
+}
+
+.deg-linear {
+  height: 50px;
+  background: linear-gradient(45deg, blue, green, red);
+}
+
+.multicolor-linear {
+  height: 50px;
+  background: linear-gradient(90deg, blue 28px, green 77%, red);
+}
+
+.color-hint {
+  height: 50px;
+  background: linear-gradient(90deg, blue, 20%, pink);
+}
+
+.multiposition-stops {
+  height: 50px;
+  background: linear-gradient(to left, lime 20%, red 30%, red 45%, cyan 55%, cyan 70%, yellow 80%);
+  background: linear-gradient(to left, lime 20%, red 30% 45%, cyan 55% 70%, yellow 80%);
+}
+
+.multiposition-stop2 {
+  height: 50px;
+  background: linear-gradient(to left, lime 25%, red 25%, red 50%, cyan 50%, cyan 75%, yellow 75%);
+  background: linear-gradient(to left, lime 25%, red 25% 50%, cyan 50% 75%, yellow 75%);
+}
+
+.repeating-linear {
+  height: 50px;
+  background: repeating-linear-gradient(-45deg, red, red 5px, blue 5px, blue 10px);
+}
