@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="loading"></div>
+    <style>
+    .loading {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        position: absolute;
+        overflow: hidden;
+        animation: spin 2.2s linear 0s infinite;
+    }
+
+    .loading>div {
+        width: 18px;
+        height: 2px;
+        background: #d9d9d9;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: 0 center;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .loading::before {
+        display: inline-block;
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        z-index: 500;
+        border-radius: 50%;
+    }
+    </style>
+    <script>
+    oLoading = document.querySelector('.loading');
+    for (var i = 0; i < 10; i++) {
+        oDiv = document.createElement('div');
+        oDiv.style.transform = "rotate(" + 360 / 10 * i + "deg) ";
+        oDiv.style.background = "rgba(0,0,0," + 360 / 10 / 1000 * (i + 1) * 1.5 + ")";
+        oLoading.appendChild(oDiv);
+    }
+    </script>
+</body>
+
+</html>
