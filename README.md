@@ -23,6 +23,7 @@
 * [Css3渐变](http://jonechen1127.github.io/some-demos/css3-gradient/index.html)
 * [Css3-clip](http://jonechen1127.github.io/some-demos/css3-clip.html)
 * [Css3-clip-path](http://jonechen1127.github.io/some-demos/css3-clip-path.html)
+* [Css3-loading](http://jonechen1127.github.io/some-demos/css3-loading.html)
 
 
 #### Tips：如以上demo访问不了，请移步[这里](https://dev.tencent.com/u/C-JUN/p/some-demos)。
