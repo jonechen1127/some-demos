@@ -10,7 +10,7 @@
 * [Css3一些动画效果](http://jonechen1127.github.io/some-demos/css3-hamburger-button/index.html)
 * [移动端下拉刷新、上拉加载、按需加载](http://jonechen1127.github.io/some-demos/dropload/index.html)
 * [Flex布局](http://jonechen1127.github.io/some-demos/flex/index.html)
-* [Js唤起App](http://jonechen1127.github.io/some-demos/openApp/index.html)
+* [Js唤起App](http://jonechen1127.github.io/some-demos/open-app/index.html)
 * [Web音乐播放器](http://jonechen1127.github.io/some-demos/player/index.html)
 * [利用Canvas写一个字](http://jonechen1127.github.io/some-demos/other/canvas-text.html)
 * [Css3写各种图形](http://jonechen1127.github.io/some-demos/css3-figure.html)
