@@ -24,7 +24,8 @@
 * [Css3-clip](http://jonechen1127.github.io/some-demos/other/css3-clip.html)
 * [Css3-clip-path](http://jonechen1127.github.io/some-demos/other/css3-clip-path.html)
 * [Css3-loading](http://jonechen1127.github.io/some-demos/other/css3-loading.html)
-* [circle-animation](http://jonechen1127.github.io/some-demos/other/circle-animation.html)
+* [Circle-animation](http://jonechen1127.github.io/some-demos/other/circle-animation.html)
+* [Js发布订阅模式](http://jonechen1127.github.io/some-demos/publish-subscribe-mode/index.html)
 
 
 #### Tips：如以上demo访问不了，请移步[这里](https://dev.tencent.com/u/C-JUN/p/some-demos)。
