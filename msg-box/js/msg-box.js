@@ -31,22 +31,22 @@
         background: 'rgba(0,0,0,.0)',
         zIndex: 9999,
     };
-    var MsgBoxStyle = Object.assign(defaultStyle, flexObj.flex, flexObj.center);
+    var msgBoxStyle = Object.assign(defaultStyle, flexObj.flex, flexObj.center);
     $.MsgBox = {
-        Alert: function(msg, callback) {
-            CreateHTML("alert", msg);
+        alert: function(msg, callback) {
+            createHtml("alert", msg);
             AlertClickEnter(callback);
         },
-        Confirm: function(msg, callbackOk, callbackCancel) {
-            CreateHTML("confirm", msg);
+        confirm: function(msg, callbackOk, callbackCancel) {
+            createHtml("confirm", msg);
             ConfirmClickOk(callbackOk);
-            ConfirmClickCancel(callbackCancel);
+            confirmClickCancel(callbackCancel);
         },
-        Toast: function(msg) {
+        toast: function(msg) {
             var html = '';
             html += "<div class='MsgBoxMask'><span class='ToastMsg'>" + msg + "</span></div>";
             $('body').append(html);
-            $('.MsgBoxMask').css(MsgBoxStyle);
+            $('.MsgBoxMask').css(msgBoxStyle);
             $('.ToastMsg').css({
             	backgroundColor: 'rgba(20,20,20,.6)',
                 borderRadius: '20px',
@@ -62,7 +62,7 @@
         }
     };
 
-    function CreateHTML(type, msg) {
+    function createHtml(type, msg) {
         var html = "";
         html += "<div class='MsgBoxMask'><div class='MsgBox'>";
         html += "<h2 class='MsgContent'>" + msg + "</h2>";
@@ -75,11 +75,11 @@
         }
         html += "</div></div>"
         $('body').append(html);
-        CreateCSS();
+        createCss();
     }
     //css
-    function CreateCSS() {
-        $(".MsgBoxMask").css(MsgBoxStyle).css('background', 'rgba(0,0,0,.4)');
+    function createCss() {
+        $(".MsgBoxMask").css(msgBoxStyle).css('background', 'rgba(0,0,0,.4)');
         $(".MsgBox").css({
             width: '80%',
             height: 'auto',
@@ -136,7 +136,7 @@
         });
     }
 
-    function ConfirmClickCancel(callbackCancel) {
+    function confirmClickCancel(callbackCancel) {
         $('.MsgOk').click(function() {
             $('.MsgBoxMask').remove();
             if (typeof callbackCancel == 'function') {

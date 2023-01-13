@@ -6,7 +6,7 @@
 	<title>移动端弹窗插件</title>
 	<link rel="stylesheet" href="css/reset.css">
 	<script src="http://apps.bdimg.com/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="js/MsgBox.js"></script>
+	<script src="js/msg-box.js"></script>
 	<style>
 	.container { padding: 10px; }
 	button { height: 48px; background-color: #f90; color: #fff; display: block; border: none; padding: 0; margin: 0 0 10px 0; border-radius: 5px; display: block; width: 100%;font-size: 1rem;}
@@ -20,17 +20,17 @@
 	</div>
 	<script>
 		function Alert() {
-			$.MsgBox.Alert('你点击了！', function() {
+			$.MsgBox.alert('你点击了！', function() {
 				alert('我是回调函数');
 			})
 		}
 
 		function Toast() {
-			$.MsgBox.Toast('操作成功，2s后消失');
+			$.MsgBox.toast('操作成功，2s后消失');
 		}
 
 		function Confirm() {
-			$.MsgBox.Confirm('你点击了！', function() {
+			$.MsgBox.confirm('你点击了！', function() {
 				alert('你点击了取消！');
 			}, function() {
 				alert('你点击了确定！');
